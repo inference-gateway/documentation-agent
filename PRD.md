@@ -82,7 +82,7 @@ This agent will allow developers and operators to easily plug Context7 capabilit
 * **Transport**: HTTP/SSE async with polling and real-time sync with streaming.
 * **Config**:
 
-  ```yaml
+```yaml
 apiVersion: core.inference-gateway.com/v1alpha1
 kind: Agent
 metadata:
@@ -140,7 +140,7 @@ spec:
         configMapKeyRef:
           name: context7-config
           key: A2A_AGENT_URL
-  ```
+```
 * **Error Handling**: Retry failed MCP calls with exponential backoff.
 * **Observability**: Export OpenTelemetry traces for tool calls.
 
