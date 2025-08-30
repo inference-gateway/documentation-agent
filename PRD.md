@@ -12,7 +12,7 @@ This agent will allow developers and operators to easily plug Context7 capabilit
 ## 2. Goals
 
 * ✅ Provide **first-class support for Context7** inside the Inference Gateway ecosystem.
-* ✅ Allow **declarative agent definitions** (via the Agent Definition CLI) to expose Context7 tools and capabilities.
+* ✅ Enable the Infer CLI to fetch and run a documentation agent, providing access to always up-to-date documentation when executing tasks.
 * ✅ Optimize for **low token usage and efficient context passing**.
 * ✅ Ship an **example agent definition** that users can immediately run with `infer agent run`.
 
