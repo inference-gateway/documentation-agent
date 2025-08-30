@@ -1,0 +1,45 @@
+apiVersion: adl.dev/v1
+kind: Agent
+metadata:
+  name: documentation-agent
+  description: "Assistant for managing and searching through Documentations queries"
+  version: "1.0.0"
+spec:
+  capabilities:
+    streaming: true
+    pushNotifications: false
+    stateTransitionHistory: true
+  agent:
+    provider: ""
+    model: ""
+    systemPrompt: "You are a helpful weather assistant."
+    maxTokens: 4096
+    temperature: 0.7
+  tools:
+    - name: resolve_library_id
+      description: "Resolves library by its id"
+      schema:
+        type: object
+        properties:
+          id:
+            - type: string
+              description: "Library ID"
+        required:
+          - id
+    - name: get_library_docs
+      description: "Resolves library by its id"
+      schema:
+        type: object
+        properties:
+          library:
+            - type: string
+              description: "Library Name"
+        required:
+          - library
+  server:
+    port: 8080
+    debug: false
+  language:
+    go:
+      module: "github.com/example/weather-agent"
+      version: "1.24"
