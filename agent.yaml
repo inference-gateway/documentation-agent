@@ -3,7 +3,7 @@ kind: Agent
 metadata:
   name: documentation-agent
   description: "Assistant for managing and searching through Documentations queries"
-  version: "1.0.0"
+  version: "0.1.0"
 spec:
   capabilities:
     streaming: true
