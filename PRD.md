@@ -14,7 +14,7 @@ This agent will allow developers and operators to easily plug Context7 capabilit
 * ✅ Provide **first-class support for Context7** inside the Inference Gateway ecosystem.
 * ✅ Enable the Infer CLI to fetch and run a documentation agent, providing access to always up-to-date documentation when executing tasks.
 * ✅ Optimize for **low token usage and efficient context passing**.
-* ✅ Ship an **example agent definition** that users can immediately run with `infer agent run`.
+* ✅ Ship an **example agent definition** that users can immediately run with `infer a2a connect <oci>`.
 
 ---
 
@@ -30,7 +30,7 @@ This agent will allow developers and operators to easily plug Context7 capabilit
 
 ### 4.1 Developer
 
-* *As a developer*, I want to run `infer agent add context7` so I can immediately use Context7 tools in my multi-agent workflows.
+* *As a developer*, I want to run `infer a2a connect context7` so I can immediately use Context7 tools in my multi-agent workflows.
 * *As a developer*, I want to declaratively define the Context7 agent in `AGENTS.md` or via the CLI, so I don’t have to manually wire up MCP tool calls.
 * *As a developer*, I want to chain Context7 with other agents (e.g., Browser, Docs, GitHub) via A2A so I can build compound automations.
 
@@ -63,7 +63,7 @@ This agent will allow developers and operators to easily plug Context7 capabilit
 
 ### 5.4 CLI Integration
 
-* Must integrate with `infer agent run context7`.
+* Must integrate with `infer a2a connect context7`.
 * Must allow local testing via the CLI before deployment to Kubernetes.
 
 ### 5.5 Deployment
@@ -146,7 +146,7 @@ spec:
 ## 7. Acceptance Criteria
 
 * [ ] Agent can be defined via CLI and generates a valid `AGENTS.md` entry.
-* [ ] `infer agent run context7` successfully connects to a running Context7 A2A server.
+* [ ] `infer a2a connect context7` successfully connects to a running Context7 A2A server.
 * [ ] Tools `search` is a skill associated with this agent.
 * [ ] Works in **local mode** (CLI) and **Kubernetes mode** (Operator).
 * [ ] Exposes metrics (tool calls, latency, token usage).
