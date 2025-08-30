@@ -28,7 +28,7 @@ spec:
         required:
           - id
     - name: get_library_docs
-      description: "Resolves library by its id"
+      description: "Get the docs for the specific library"
       schema:
         type: object
         properties:
