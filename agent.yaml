@@ -42,5 +42,5 @@ spec:
     debug: false
   language:
     go:
-      module: "github.com/example/weather-agent"
+      module: "github.com/inference-gateway/documentation-agent"
       version: "1.24"
