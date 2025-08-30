@@ -83,13 +83,63 @@ This agent will allow developers and operators to easily plug Context7 capabilit
 * **Config**:
 
   ```yaml
-  kind: Agent
-  metadata:
-    name: context7
-  spec:
-    server: mcp://context7
-    tools:
-      - search
+apiVersion: core.inference-gateway.com/v1alpha1
+kind: Agent
+metadata:
+  name: context7-agent
+  namespace: agents
+spec:
+  image: ghcr.io/inference-gateway/context7-agent:latest
+  timezone: "UTC"
+  port: 8080
+  host: "0.0.0.0"
+  readTimeout: "30s"
+  writeTimeout: "30s"
+  idleTimeout: "60s"
+  logging:
+    level: "info"
+    format: "json"
+  telemetry:
+    enabled: true
+    metrics:
+      enabled: true
+      port: 9090
+  queue:
+    enabled: true
+    maxSize: 1000
+    cleanupInterval: "5m"
+  tls:
+    enabled: false
+    secretRef: ""
+  agent:
+    enabled: true
+    tls:
+      enabled: true
+      secretRef: ""
+    maxConversationHistory: 10
+    maxChatCompletionIterations: 5
+    maxRetries: 3
+    apiKey:
+      secretRef: "your-api-key"
+    llm:
+      model: "openai/gpt-3.5-turbo"
+      maxTokens: 4096
+      temperature: "0.7"
+      customHeaders:
+        - name: "User-Agent"
+          value: "Context7 Agent"
+      systemPrompt: "You are a helpful assistant for managing and searching through Documentations queries. You can use MCP Client context7 for searching docs."
+  env:
+    - name: DEMO_MODE
+      valueFrom:
+        configMapKeyRef:
+          name: context7-config
+          key: DEMO_MODE
+    - name: A2A_AGENT_URL
+      valueFrom:
+        configMapKeyRef:
+          name: context7-config
+          key: A2A_AGENT_URL
   ```
 * **Error Handling**: Retry failed MCP calls with exponential backoff.
 * **Observability**: Export OpenTelemetry traces for tool calls.
