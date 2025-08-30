@@ -48,10 +48,7 @@ This agent will allow developers and operators to easily plug Context7 capabilit
 * The agent must be **declared via Agent Definition CLI**:
 
   ```bash
-  infer agent define context7 \
-    --server mcp://context7 \
-    --description "Access Context7 MCP tools via Inference Gateway" \
-    --tools search
+  infer a2a connect oci://ghcr.io/inference-gateway/context7-agent:latest
   ```
 * Must generate an **AGENTS.md entry** (open-standard format) with the tools and their schemas.
 
