@@ -10,7 +10,7 @@ spec:
     pushNotifications: false
     stateTransitionHistory: true
   agent:
-    provider: ""
+    provider: "none"
     model: ""
     systemPrompt: |
       You are a helpful assistant for managing and searching through Documentations queries. You can use MCP Client context7 for searching docs.
@@ -23,8 +23,8 @@ spec:
         type: object
         properties:
           id:
-            - type: string
-              description: "Library ID"
+            type: string
+            description: "Library ID"
         required:
           - id
     - name: get_library_docs
@@ -33,8 +33,8 @@ spec:
         type: object
         properties:
           library:
-            - type: string
-              description: "Library Name"
+            type: string
+            description: "Library Name"
         required:
           - library
   server:
