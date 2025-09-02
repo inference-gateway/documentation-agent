@@ -9,6 +9,12 @@ spec:
     streaming: true
     pushNotifications: false
     stateTransitionHistory: true
+  card:
+    protocolVersion: "0.3.0"
+    preferredTransport: "JSONRPC"
+    defaultInputModes: ["text"]
+    defaultOutputModes: ["text"]
+    documentationUrl: "https://docs.inference-gateway.com"
   agent:
     provider: ""
     model: ""
