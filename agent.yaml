@@ -16,9 +16,11 @@ spec:
       You are a helpful assistant for managing and searching through Documentations queries.
     maxTokens: 4096
     temperature: 0.7
-  tools:
-    - name: resolve_library_id
+  skills:
+    - id: resolve_library_id
+      name: resolve_library_id
       description: "Resolves library name to Context7-compatible library ID and returns matching libraries"
+      tags: ["docs", "libraries"]
       schema:
         type: object
         properties:
@@ -27,8 +29,10 @@ spec:
             description: "Library name to search for and retrieve a Context7-compatible library ID"
         required:
           - libraryName
-    - name: get_library_docs
+    - id: get_library_docs
+      name: get_library_docs
       description: "Fetches up-to-date documentation for a library using Context7-compatible library ID"
+      tags: ["docs", "libraries"]
       schema:
         type: object
         properties:
