@@ -13,7 +13,7 @@ spec:
     provider: ""
     model: ""
     systemPrompt: |
-      You are a helpful assistant for managing and searching through Documentations queries. You can use MCP Client context7 for searching docs.
+      You are a helpful assistant for managing and searching through Documentations queries.
     maxTokens: 4096
     temperature: 0.7
   tools:
