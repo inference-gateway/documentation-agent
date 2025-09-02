@@ -6,8 +6,14 @@ package tools
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"net/http"
+	"os"
+	"strconv"
+	"strings"
 
+	"github.com/go-resty/resty/v2"
 	"github.com/inference-gateway/adk/server"
 )
 
@@ -15,13 +21,24 @@ import (
 func NewGetLibraryDocsTool() server.Tool {
 	return server.NewBasicTool(
 		"get_library_docs",
-		"Get the docs for the specific library",
+		"Fetches up-to-date documentation for a library using Context7-compatible library ID",
 		map[string]any{
 			"type": "object",
 			"properties": map[string]any{
-				"library": map[string]any{"description": "Library Name", "type": "string"},
+				"context7CompatibleLibraryID": map[string]any{
+					"description": "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase', '/vercel/next.js/v14.3.0-canary.87') retrieved from resolve_library_id or directly from user query in the format '/org/project' or '/org/project/version'",
+					"type":        "string",
+				},
+				"tokens": map[string]any{
+					"description": "Maximum number of tokens of documentation to retrieve (default: 10000). Higher values provide more context but consume more tokens",
+					"type":        "number",
+				},
+				"topic": map[string]any{
+					"description": "Topic to focus documentation on (e.g., 'hooks', 'routing')",
+					"type":        "string",
+				},
 			},
-			"required": []string{"library"},
+			"required": []string{"context7CompatibleLibraryID"},
 		},
 		GetLibraryDocsHandler,
 	)
@@ -29,11 +46,111 @@ func NewGetLibraryDocsTool() server.Tool {
 
 // GetLibraryDocsHandler handles the get_library_docs tool execution
 func GetLibraryDocsHandler(ctx context.Context, args map[string]any) (string, error) {
-	// TODO: Implement get_library_docs logic
-	// Get the docs for the specific library
-
 	// Extract parameters from args
-	// library := args["library"].(string)
+	libraryID, ok := args["context7CompatibleLibraryID"].(string)
+	if !ok {
+		return "", fmt.Errorf("context7CompatibleLibraryID parameter is required and must be a string")
+	}
 
-	return fmt.Sprintf(`{"result": "TODO: Implement get_library_docs logic", "input": %+v}`, args), nil
+	if strings.TrimSpace(libraryID) == "" {
+		return "", fmt.Errorf("context7CompatibleLibraryID cannot be empty")
+	}
+
+	// Validate library ID format (should start with /)
+	if !strings.HasPrefix(libraryID, "/") {
+		return "", fmt.Errorf("context7CompatibleLibraryID must be in format '/org/project' or '/org/project/version', got: %s", libraryID)
+	}
+
+	// Get optional parameters
+	tokens := 10000 // Default value
+	if tokensArg, exists := args["tokens"]; exists {
+		switch v := tokensArg.(type) {
+		case float64:
+			tokens = int(v)
+		case int:
+			tokens = v
+		case string:
+			if parsed, err := strconv.Atoi(v); err == nil {
+				tokens = parsed
+			}
+		}
+		// Enforce minimum as per Context7 MCP server
+		if tokens < 10000 {
+			tokens = 10000
+		}
+	}
+
+	topic := ""
+	if topicArg, exists := args["topic"]; exists {
+		if str, ok := topicArg.(string); ok {
+			topic = strings.TrimSpace(str)
+		}
+	}
+
+	// Get API key from environment
+	apiKey := os.Getenv("CONTEXT7_API_KEY")
+	if apiKey == "" {
+		return `{"error": "Context7 API key not configured. Please set CONTEXT7_API_KEY environment variable"}`, nil
+	}
+
+	// Create HTTP client
+	client := resty.New()
+	
+	// Build API URL - remove leading slash from libraryID for URL construction
+	apiURL := fmt.Sprintf("https://context7.com/api/v1%s", libraryID)
+	
+	// Build request
+	req := client.R().
+		SetHeader("Authorization", fmt.Sprintf("Bearer %s", apiKey)).
+		SetHeader("User-Agent", "documentation-agent/0.1.0").
+		SetQueryParam("type", "txt").
+		SetQueryParam("tokens", strconv.Itoa(tokens))
+	
+	// Add topic parameter if provided
+	if topic != "" {
+		req.SetQueryParam("topic", topic)
+	}
+
+	// Make request to Context7 API
+	resp, err := req.Get(apiURL)
+
+	if err != nil {
+		return "", fmt.Errorf("failed to make request to Context7 API: %w", err)
+	}
+
+	if resp.StatusCode() != http.StatusOK {
+		if resp.StatusCode() == http.StatusUnauthorized {
+			return `{"error": "Invalid Context7 API key. Please check your CONTEXT7_API_KEY environment variable"}`, nil
+		}
+		if resp.StatusCode() == http.StatusNotFound {
+			return fmt.Sprintf(`{"error": "Library not found: %s. Please check the library ID format and ensure it exists in Context7"}`, libraryID), nil
+		}
+		return "", fmt.Errorf("Context7 API returned status %d: %s", resp.StatusCode(), resp.String())
+	}
+
+	// The response is plain text documentation
+	documentation := string(resp.Body())
+	
+	if strings.TrimSpace(documentation) == "" {
+		return fmt.Sprintf(`{"error": "No documentation found for library: %s"}`, libraryID), nil
+	}
+
+	// Format response similar to Context7 MCP server
+	response := map[string]any{
+		"libraryID":     libraryID,
+		"documentation": documentation,
+		"tokens":        tokens,
+		"actualTokens":  len(strings.Fields(documentation)), // Rough token approximation
+	}
+	
+	if topic != "" {
+		response["topic"] = topic
+	}
+
+	responseJson, err := json.Marshal(response)
+	if err != nil {
+		return "", fmt.Errorf("failed to marshal response: %w", err)
+	}
+
+	return string(responseJson), nil
 }

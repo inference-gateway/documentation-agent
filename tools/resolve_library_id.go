@@ -6,22 +6,52 @@ package tools
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
+	"net/http"
+	"os"
+	"strings"
 
+	"github.com/go-resty/resty/v2"
 	"github.com/inference-gateway/adk/server"
 )
+
+// SearchResult represents a library search result from Context7
+type SearchResult struct {
+	ID              string   `json:"id"`
+	Title           string   `json:"title"`
+	Description     string   `json:"description"`
+	Branch          string   `json:"branch"`
+	LastUpdateDate  string   `json:"lastUpdateDate"`
+	State           string   `json:"state"`
+	TotalTokens     int      `json:"totalTokens"`
+	TotalSnippets   int      `json:"totalSnippets"`
+	TotalPages      int      `json:"totalPages"`
+	Stars           *int     `json:"stars,omitempty"`
+	TrustScore      *int     `json:"trustScore,omitempty"`
+	Versions        []string `json:"versions,omitempty"`
+}
+
+// SearchResponse represents the response from Context7 search API
+type SearchResponse struct {
+	Error   string         `json:"error,omitempty"`
+	Results []SearchResult `json:"results"`
+}
 
 // NewResolveLibraryIDTool creates a new resolve_library_id tool
 func NewResolveLibraryIDTool() server.Tool {
 	return server.NewBasicTool(
 		"resolve_library_id",
-		"Resolves library by its id",
+		"Resolves library name to Context7-compatible library ID and returns matching libraries",
 		map[string]any{
 			"type": "object",
 			"properties": map[string]any{
-				"id": map[string]any{"description": "Library ID", "type": "string"},
+				"libraryName": map[string]any{
+					"description": "Library name to search for and retrieve a Context7-compatible library ID",
+					"type":        "string",
+				},
 			},
-			"required": []string{"id"},
+			"required": []string{"libraryName"},
 		},
 		ResolveLibraryIDHandler,
 	)
@@ -29,11 +59,135 @@ func NewResolveLibraryIDTool() server.Tool {
 
 // ResolveLibraryIDHandler handles the resolve_library_id tool execution
 func ResolveLibraryIDHandler(ctx context.Context, args map[string]any) (string, error) {
-	// TODO: Implement resolve_library_id logic
-	// Resolves library by its id
-
 	// Extract parameters from args
-	// id := args["id"].(string)
+	libraryName, ok := args["libraryName"].(string)
+	if !ok {
+		return "", fmt.Errorf("libraryName parameter is required and must be a string")
+	}
 
-	return fmt.Sprintf(`{"result": "TODO: Implement resolve_library_id logic", "input": %+v}`, args), nil
+	if strings.TrimSpace(libraryName) == "" {
+		return "", fmt.Errorf("libraryName cannot be empty")
+	}
+
+	// Get API key from environment
+	apiKey := os.Getenv("CONTEXT7_API_KEY")
+	if apiKey == "" {
+		return `{"error": "Context7 API key not configured. Please set CONTEXT7_API_KEY environment variable"}`, nil
+	}
+
+	// Create HTTP client
+	client := resty.New()
+	
+	// Make search request to Context7 API
+	resp, err := client.R().
+		SetHeader("Authorization", fmt.Sprintf("Bearer %s", apiKey)).
+		SetHeader("User-Agent", "documentation-agent/0.1.0").
+		SetQueryParam("query", libraryName).
+		Get("https://context7.com/api/v1/search")
+
+	if err != nil {
+		return "", fmt.Errorf("failed to make request to Context7 API: %w", err)
+	}
+
+	if resp.StatusCode() != http.StatusOK {
+		if resp.StatusCode() == http.StatusUnauthorized {
+			return `{"error": "Invalid Context7 API key. Please check your CONTEXT7_API_KEY environment variable"}`, nil
+		}
+		return "", fmt.Errorf("Context7 API returned status %d: %s", resp.StatusCode(), resp.String())
+	}
+
+	// Parse response
+	var searchResponse SearchResponse
+	if err := json.Unmarshal(resp.Body(), &searchResponse); err != nil {
+		return "", fmt.Errorf("failed to parse Context7 API response: %w", err)
+	}
+
+	// Check for API error
+	if searchResponse.Error != "" {
+		return fmt.Sprintf(`{"error": "%s"}`, searchResponse.Error), nil
+	}
+
+	// If no results found
+	if len(searchResponse.Results) == 0 {
+		return fmt.Sprintf(`{"error": "No libraries found matching '%s'"}`, libraryName), nil
+	}
+
+	// Select the best match based on Context7 MCP server logic:
+	// 1. Exact name matches (prioritized)
+	// 2. Description relevance 
+	// 3. Documentation coverage (higher Code Snippet counts)
+	// 4. Trust score (7-10 preferred)
+	var selectedResult *SearchResult
+	
+	// First, look for exact title matches
+	for i := range searchResponse.Results {
+		result := &searchResponse.Results[i]
+		if strings.EqualFold(result.Title, libraryName) {
+			selectedResult = result
+			break
+		}
+	}
+	
+	// If no exact match, select based on scoring criteria
+	if selectedResult == nil {
+		bestScore := -1
+		for i := range searchResponse.Results {
+			result := &searchResponse.Results[i]
+			score := 0
+			
+			// Prioritize by snippet count (more documentation is better)
+			score += result.TotalSnippets
+			
+			// Add trust score if available (7-10 range)
+			if result.TrustScore != nil && *result.TrustScore >= 7 {
+				score += *result.TrustScore * 10 // Weight trust score heavily
+			}
+			
+			// Add points for finalized state
+			if result.State == "finalized" {
+				score += 100
+			}
+			
+			if score > bestScore {
+				bestScore = score
+				selectedResult = result
+			}
+		}
+	}
+
+	// If still no result (shouldn't happen), take the first one
+	if selectedResult == nil {
+		selectedResult = &searchResponse.Results[0]
+	}
+
+	// Format response similar to Context7 MCP server
+	response := map[string]any{
+		"selectedLibraryID": selectedResult.ID,
+		"selectedLibrary": map[string]any{
+			"id":              selectedResult.ID,
+			"title":           selectedResult.Title,
+			"description":     selectedResult.Description,
+			"totalSnippets":   selectedResult.TotalSnippets,
+			"totalTokens":     selectedResult.TotalTokens,
+			"state":           selectedResult.State,
+			"lastUpdateDate":  selectedResult.LastUpdateDate,
+		},
+		"allMatches": searchResponse.Results,
+		"totalMatches": len(searchResponse.Results),
+	}
+
+	// Add optional fields if present
+	if selectedResult.TrustScore != nil {
+		response["selectedLibrary"].(map[string]any)["trustScore"] = *selectedResult.TrustScore
+	}
+	if selectedResult.Stars != nil {
+		response["selectedLibrary"].(map[string]any)["stars"] = *selectedResult.Stars
+	}
+
+	responseJson, err := json.Marshal(response)
+	if err != nil {
+		return "", fmt.Errorf("failed to marshal response: %w", err)
+	}
+
+	return string(responseJson), nil
 }
