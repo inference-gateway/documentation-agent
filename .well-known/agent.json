@@ -1,7 +1,7 @@
 {
   "_generated": {
     "by": "A2A CLI",
-    "timestamp": "2025-09-02T19:35:54+02:00",
+    "timestamp": "2025-09-02T19:54:05+02:00",
     "version": "0.10.2",
     "warning": "This file was automatically generated. DO NOT EDIT."
   },
@@ -14,33 +14,41 @@
   "name": "documentation-agent",
   "tools": [
     {
-      "description": "Resolves library by its id",
+      "description": "Resolves library name to Context7-compatible library ID and returns matching libraries",
       "name": "resolve_library_id",
       "schema": {
         "properties": {
-          "id": {
-            "description": "Library ID",
+          "libraryName": {
+            "description": "Library name to search for and retrieve a Context7-compatible library ID",
             "type": "string"
           }
         },
         "required": [
-          "id"
+          "libraryName"
         ],
         "type": "object"
       }
     },
     {
-      "description": "Get the docs for the specific library",
+      "description": "Fetches up-to-date documentation for a library using Context7-compatible library ID",
       "name": "get_library_docs",
       "schema": {
         "properties": {
-          "library": {
-            "description": "Library Name",
+          "context7CompatibleLibraryID": {
+            "description": "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase') retrieved from resolve_library_id or directly from user query in the format '/org/project' or '/org/project/version'",
+            "type": "string"
+          },
+          "tokens": {
+            "description": "Maximum number of tokens of documentation to retrieve (default: 10000). Higher values provide more context but consume more tokens",
+            "type": "number"
+          },
+          "topic": {
+            "description": "Topic to focus documentation on (e.g., 'hooks', 'routing')",
             "type": "string"
           }
         },
         "required": [
-          "library"
+          "context7CompatibleLibraryID"
         ],
         "type": "object"
       }

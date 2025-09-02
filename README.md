@@ -38,8 +38,8 @@ docker run -p 8080:8080 documentation-agent
 - `POST /a2a` - A2A protocol endpoint
 
 ## Available Tools
-- **resolve_library_id** - Resolves library by its id
-- **get_library_docs** - Get the docs for the specific library
+- **resolve_library_id** - Resolves library name to Context7-compatible library ID and returns matching libraries
+- **get_library_docs** - Fetches up-to-date documentation for a library using Context7-compatible library ID
 
 ## Configuration
 
