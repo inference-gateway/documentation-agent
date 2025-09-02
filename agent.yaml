@@ -44,6 +44,9 @@ spec:
     go:
       module: "github.com/inference-gateway/documentation-agent"
       version: "1.24"
+  scm:
+    provider: github
+    url: "https://github.com/inference-gateway/documentation-agent"
   sandbox:
     flox:
       enabled: true
