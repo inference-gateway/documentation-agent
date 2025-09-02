@@ -35,6 +35,10 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Install Agent Definition Language (ADL) CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/inference-gateway/adl-cli/main/install.sh | bash
+
       - name: Install Flox
         uses: flox/install-flox-action@main
 
@@ -75,3 +79,4 @@ jobs:
             Bash(go:*)
             Bash(gh:*)
             Bash(git:*)
+            Bash(adl:*)
