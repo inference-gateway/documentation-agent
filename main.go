@@ -1,17 +1,21 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 	"os"
+	"os/signal"
+	"syscall"
+	"time"
 
 	"github.com/gorilla/mux"
 	"gopkg.in/yaml.v3"
 )
 
-// Agent represents the agent configuration
+// Agent represents the ADL agent configuration
 type Agent struct {
 	APIVersion string `yaml:"apiVersion"`
 	Kind       string `yaml:"kind"`
@@ -23,8 +27,8 @@ type Agent struct {
 	Spec struct {
 		Capabilities struct {
 			Streaming               bool `yaml:"streaming"`
-			PushNotifications       bool `yaml:"pushNotifications"`
-			StateTransitionHistory  bool `yaml:"stateTransitionHistory"`
+			PushNotifications      bool `yaml:"pushNotifications"`
+			StateTransitionHistory bool `yaml:"stateTransitionHistory"`
 		} `yaml:"capabilities"`
 		Agent struct {
 			Provider     string  `yaml:"provider"`
@@ -34,9 +38,13 @@ type Agent struct {
 			Temperature  float64 `yaml:"temperature"`
 		} `yaml:"agent"`
 		Tools []struct {
-			Name        string      `yaml:"name"`
-			Description string      `yaml:"description"`
-			Schema      interface{} `yaml:"schema"`
+			Name        string `yaml:"name"`
+			Description string `yaml:"description"`
+			Schema      struct {
+				Type       string `yaml:"type"`
+				Properties map[string]interface{} `yaml:"properties"`
+				Required   []string `yaml:"required"`
+			} `yaml:"schema"`
 		} `yaml:"tools"`
 		Server struct {
 			Port  int  `yaml:"port"`
@@ -48,108 +56,155 @@ type Agent struct {
 				Version string `yaml:"version"`
 			} `yaml:"go"`
 		} `yaml:"language"`
+		Sandbox struct {
+			Flox struct {
+				Enabled bool `yaml:"enabled"`
+			} `yaml:"flox"`
+		} `yaml:"sandbox"`
 	} `yaml:"spec"`
 }
 
-// loadAgentConfig loads the agent configuration from agent.yaml
-func loadAgentConfig() (*Agent, error) {
-	file, err := os.ReadFile("agent.yaml")
+// Tool represents an agent tool
+type Tool struct {
+	Name        string                 `json:"name"`
+	Description string                 `json:"description"`
+	Schema      map[string]interface{} `json:"schema"`
+}
+
+// Server represents the A2A agent server
+type Server struct {
+	agent  Agent
+	router *mux.Router
+}
+
+// NewServer creates a new agent server
+func NewServer(configPath string) (*Server, error) {
+	data, err := os.ReadFile(configPath)
 	if err != nil {
-		return nil, fmt.Errorf("failed to read agent.yaml: %w", err)
+		return nil, fmt.Errorf("failed to read config file: %w", err)
 	}
 
 	var agent Agent
-	if err := yaml.Unmarshal(file, &agent); err != nil {
-		return nil, fmt.Errorf("failed to parse agent.yaml: %w", err)
+	if err := yaml.Unmarshal(data, &agent); err != nil {
+		return nil, fmt.Errorf("failed to parse config file: %w", err)
 	}
 
-	return &agent, nil
+	s := &Server{
+		agent:  agent,
+		router: mux.NewRouter(),
+	}
+
+	s.setupRoutes()
+	return s, nil
+}
+
+// setupRoutes configures the HTTP routes
+func (s *Server) setupRoutes() {
+	s.router.HandleFunc("/health", s.healthHandler).Methods("GET")
+	s.router.HandleFunc("/tools", s.toolsHandler).Methods("GET")
+	s.router.HandleFunc("/execute", s.executeHandler).Methods("POST")
 }
 
 // healthHandler handles health check requests
-func healthHandler(w http.ResponseWriter, r *http.Request) {
+func (s *Server) healthHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	response := map[string]string{"status": "healthy"}
-	json.NewEncoder(w).Encode(response)
+	json.NewEncoder(w).Encode(map[string]interface{}{
+		"status": "healthy",
+		"agent":  s.agent.Metadata.Name,
+		"version": s.agent.Metadata.Version,
+	})
 }
 
-// toolsHandler handles tool discovery requests
-func toolsHandler(agent *Agent) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(agent.Spec.Tools)
+// toolsHandler returns available tools
+func (s *Server) toolsHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	
+	var tools []Tool
+	for _, tool := range s.agent.Spec.Tools {
+		tools = append(tools, Tool{
+			Name:        tool.Name,
+			Description: tool.Description,
+			Schema:      map[string]interface{}(tool.Schema.Properties),
+		})
 	}
+	
+	json.NewEncoder(w).Encode(map[string]interface{}{
+		"tools": tools,
+	})
 }
 
 // executeHandler handles tool execution requests
-func executeHandler(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	toolName := vars["tool"]
+func (s *Server) executeHandler(w http.ResponseWriter, r *http.Request) {
+	var request struct {
+		Tool   string                 `json:"tool"`
+		Params map[string]interface{} `json:"params"`
+	}
 
-	var request map[string]interface{}
 	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
-		http.Error(w, "Invalid JSON", http.StatusBadRequest)
+		http.Error(w, "Invalid request body", http.StatusBadRequest)
 		return
 	}
 
-	// Mock response for now - in a real implementation, this would execute the actual tool
+	w.Header().Set("Content-Type", "application/json")
+
+	// For now, return a mock response
+	// In a real implementation, this would call the actual Context7 MCP server
 	response := map[string]interface{}{
-		"tool":    toolName,
-		"request": request,
-		"result":  fmt.Sprintf("Executed %s with parameters", toolName),
-		"status":  "success",
+		"tool":   request.Tool,
+		"result": "Mock result - implement actual Context7 integration here",
+		"status": "success",
 	}
 
-	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 }
 
-// agentCardHandler serves the agent metadata
-func agentCardHandler(agent *Agent) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-
-		agentCard := map[string]interface{}{
-			"schemaVersion": "0.1.0",
-			"name":          agent.Metadata.Name,
-			"version":       agent.Metadata.Version,
-			"description":   agent.Metadata.Description,
-			"capabilities":  agent.Spec.Capabilities,
-			"tools":         agent.Spec.Tools,
-		}
-
-		json.NewEncoder(w).Encode(agentCard)
-	}
-}
-
-func main() {
-	// Load agent configuration
-	agent, err := loadAgentConfig()
-	if err != nil {
-		log.Fatalf("Failed to load agent configuration: %v", err)
-	}
-
-	// Create HTTP router
-	router := mux.NewRouter()
-
-	// Register routes
-	router.HandleFunc("/health", healthHandler).Methods("GET")
-	router.HandleFunc("/tools", toolsHandler(agent)).Methods("GET")
-	router.HandleFunc("/execute/{tool}", executeHandler).Methods("POST")
-	router.HandleFunc("/.well-known/agent.json", agentCardHandler(agent)).Methods("GET")
-
-	// Get port from environment or use default
-	port := agent.Spec.Server.Port
+// Start starts the HTTP server
+func (s *Server) Start() error {
+	port := s.agent.Spec.Server.Port
 	if port == 0 {
 		port = 8080
 	}
 
-	log.Printf("Starting %s agent on port %d", agent.Metadata.Name, port)
-	log.Printf("Description: %s", agent.Metadata.Description)
-	log.Printf("Version: %s", agent.Metadata.Version)
+	srv := &http.Server{
+		Addr:    fmt.Sprintf(":%d", port),
+		Handler: s.router,
+	}
 
-	// Start HTTP server
-	if err := http.ListenAndServe(fmt.Sprintf(":%d", port), router); err != nil {
-		log.Fatalf("Server failed to start: %v", err)
+	// Channel to listen for interrupt signal
+	stop := make(chan os.Signal, 1)
+	signal.Notify(stop, os.Interrupt, syscall.SIGTERM)
+
+	// Start server in a goroutine
+	go func() {
+		log.Printf("Starting agent server on port %d", port)
+		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("Server failed to start: %v", err)
+		}
+	}()
+
+	// Wait for interrupt signal
+	<-stop
+	log.Println("Shutting down server...")
+
+	// Create context with timeout for graceful shutdown
+	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	defer cancel()
+
+	return srv.Shutdown(ctx)
+}
+
+func main() {
+	configPath := "agent.yaml"
+	if len(os.Args) > 1 {
+		configPath = os.Args[1]
+	}
+
+	server, err := NewServer(configPath)
+	if err != nil {
+		log.Fatalf("Failed to create server: %v", err)
+	}
+
+	if err := server.Start(); err != nil {
+		log.Fatalf("Server error: %v", err)
 	}
 }
