@@ -1,8 +1,8 @@
 {
   "_generated": {
     "by": "A2A CLI",
-    "timestamp": "2025-09-02T21:36:24+02:00",
-    "version": "0.11.0",
+    "timestamp": "2025-09-03T00:50:12+02:00",
+    "version": "0.12.1",
     "warning": "This file was automatically generated. DO NOT EDIT."
   },
   "capabilities": {
@@ -12,9 +12,10 @@
   },
   "description": "Assistant for managing and searching through Documentations queries",
   "name": "documentation-agent",
-  "tools": [
+  "skills": [
     {
       "description": "Resolves library by its id",
+      "id": "resolve_library_id",
       "name": "resolve_library_id",
       "schema": {
         "properties": {
@@ -27,10 +28,15 @@
           "id"
         ],
         "type": "object"
-      }
+      },
+      "tags": [
+        "docs",
+        "libraries"
+      ]
     },
     {
       "description": "Get the docs for the specific library",
+      "id": "get_library_docs",
       "name": "get_library_docs",
       "schema": {
         "properties": {
@@ -43,7 +49,11 @@
           "library"
         ],
         "type": "object"
-      }
+      },
+      "tags": [
+        "docs",
+        "libraries"
+      ]
     }
   ],
   "version": "0.1.0"

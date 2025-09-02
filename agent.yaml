@@ -16,9 +16,11 @@ spec:
       You are a helpful assistant for managing and searching through Documentations queries.
     maxTokens: 4096
     temperature: 0.7
-  tools:
-    - name: resolve_library_id
+  skills:
+    - id: resolve_library_id
+      name: resolve_library_id
       description: "Resolves library by its id"
+      tags: ["docs", "libraries"]
       schema:
         type: object
         properties:
@@ -27,8 +29,10 @@ spec:
             description: "Library ID"
         required:
           - id
-    - name: get_library_docs
+    - id: get_library_docs
+      name: get_library_docs
       description: "Get the docs for the specific library"
+      tags: ["docs", "libraries"]
       schema:
         type: object
         properties:
