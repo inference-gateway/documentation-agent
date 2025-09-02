@@ -11,6 +11,8 @@
 
 skills/*
 Taskfile.yml
+Dockerfile
+k8s/deployment.yaml
 
 # Go dependency files
 go.sum

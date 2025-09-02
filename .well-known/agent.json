@@ -1,8 +1,8 @@
 {
   "_generated": {
     "by": "A2A CLI",
-    "timestamp": "2025-09-03T01:32:01+02:00",
-    "version": "0.12.2",
+    "timestamp": "2025-09-03T01:48:25+02:00",
+    "version": "0.12.3",
     "warning": "This file was automatically generated. DO NOT EDIT."
   },
   "capabilities": {
@@ -10,8 +10,17 @@
     "pushNotifications": false,
     "stateTransitionHistory": true
   },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
   "description": "Assistant for managing and searching through Documentations queries",
+  "documentationUrl": "https://docs.inference-gateway.com",
   "name": "documentation-agent",
+  "preferredTransport": "JSONRPC",
+  "protocolVersion": "0.3.0",
   "skills": [
     {
       "description": "Resolves library name to Context7-compatible library ID and returns matching libraries",
