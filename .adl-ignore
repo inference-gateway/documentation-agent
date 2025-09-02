@@ -1,0 +1,16 @@
+# .adl-ignore file
+# This file specifies which files should not be overwritten during generation operations.
+# Files listed here typically contain implementations that users have completed.
+#
+# Patterns supported:
+# - Exact file names: tools/my_tool.go
+# - Wildcards: *.go
+# - Directory patterns: tools/*
+# - Directories: build/
+# - Comments: lines starting with #
+
+tools/*
+
+# Add your own files to ignore here:
+# my-custom-file.go
+# config/secrets.yaml
