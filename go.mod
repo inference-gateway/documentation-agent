@@ -3,7 +3,7 @@ module github.com/inference-gateway/documentation-agent
 go 1.24
 
 require (
-	github.com/inference-gateway/adk v0.9.0
+	github.com/inference-gateway/adk v0.9.2
 	github.com/sethvargo/go-envconfig v1.3.0
 	go.uber.org/zap v1.27.0
 )
