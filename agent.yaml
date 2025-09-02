@@ -44,43 +44,6 @@ spec:
     go:
       module: "github.com/inference-gateway/documentation-agent"
       version: "1.24"
-  ci:
-    enabled: true
-    stages:
-      - name: test
-        commands:
-          - go mod tidy
-          - go test ./...
-      - name: build
-        commands:
-          - go build -o agent ./cmd/agent
-      - name: lint
-        commands:
-          - golangci-lint run
-    triggers:
-      - push
-      - pull_request
   sandbox:
     flox:
       enabled: true
-      environment:
-        name: "documentation-agent-dev"
-        packages:
-          - go
-          - golangci-lint
-          - git
-          - curl
-        variables:
-          GO_VERSION: "1.24"
-          CGO_ENABLED: "0"
-        services: []
-      commands:
-        setup:
-          - go mod download
-          - go mod tidy
-        dev:
-          - go run ./cmd/agent
-        test:
-          - go test ./...
-        build:
-          - go build -o agent ./cmd/agent
