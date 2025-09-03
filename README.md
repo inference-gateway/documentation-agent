@@ -47,24 +47,35 @@ docker run -p 8080:8080 documentation-agent
 
 ## Configuration
 
-Configure the agent via environment variables:
+Configure the agent via environment variables (see `.env.example` for a complete template):
 
 | Category | Variable | Description | Default |
 |----------|----------|-------------|---------|
-| **Core Application** | `ENVIRONMENT` | Deployment environment | - |
-| **Server** | `A2A_SERVER_PORT` | Server port | `8080` |
-| **Server** | `A2A_SERVER_READ_TIMEOUT` | Maximum duration for reading requests | `120s` |
-| **Server** | `A2A_SERVER_WRITE_TIMEOUT` | Maximum duration for writing responses | `120s` |
-| **Server** | `A2A_SERVER_IDLE_TIMEOUT` | Maximum time to wait for next request | `120s` |
-| **Server** | `A2A_SERVER_DISABLE_HEALTHCHECK_LOG` | Disable logging for health check requests | `true` |
-| **LLM Client** | `A2A_AGENT_CLIENT_PROVIDER` | LLM provider (`openai`, `anthropic`, `groq`, `ollama`, `deepseek`, `cohere`, `cloudflare`) | - |
-| **LLM Client** | `A2A_AGENT_CLIENT_MODEL` | Model to use | - |
+| **Server** | `A2A_PORT` | Server port | `8080` |
+| **Server** | `A2A_DEBUG` | Enable debug mode | `false` |
+| **Server** | `A2A_AGENT_URL` | Agent URL for internal references | `http://localhost:8080` |
+| **Server** | `A2A_STREAMING_STATUS_UPDATE_INTERVAL` | Streaming status update frequency | `1s` |
+| **Agent Metadata** | `A2A_AGENT_CARD_FILE_PATH` | Path to agent card JSON file | `.well-known/agent.json` |
+| **LLM Client** | `A2A_AGENT_CLIENT_PROVIDER` | LLM provider (`openai`, `anthropic`, `azure`, `ollama`, `deepseek`) |`` |
+| **LLM Client** | `A2A_AGENT_CLIENT_MODEL` | Model to use |`` |
 | **LLM Client** | `A2A_AGENT_CLIENT_API_KEY` | API key for LLM provider | - |
 | **LLM Client** | `A2A_AGENT_CLIENT_BASE_URL` | Custom LLM API endpoint | - |
 | **LLM Client** | `A2A_AGENT_CLIENT_TIMEOUT` | Timeout for LLM requests | `30s` |
 | **LLM Client** | `A2A_AGENT_CLIENT_MAX_RETRIES` | Maximum retries for LLM requests | `3` |
+| **LLM Client** | `A2A_AGENT_CLIENT_MAX_CHAT_COMPLETION_ITERATIONS` | Max chat completion rounds | `10` |
 | **LLM Client** | `A2A_AGENT_CLIENT_MAX_TOKENS` | Maximum tokens for LLM responses |`4096` |
 | **LLM Client** | `A2A_AGENT_CLIENT_TEMPERATURE` | Controls randomness of LLM output |`0.7` |
+| **Capabilities** | `A2A_CAPABILITIES_STREAMING` | Enable streaming responses | `true` |
+| **Capabilities** | `A2A_CAPABILITIES_PUSH_NOTIFICATIONS` | Enable push notifications | `false` |
+| **Capabilities** | `A2A_CAPABILITIES_STATE_TRANSITION_HISTORY` | Track state transitions | `true` |
+| **Task Management** | `A2A_TASK_RETENTION_MAX_COMPLETED_TASKS` | Max completed tasks to keep (0 = unlimited) | `100` |
+| **Task Management** | `A2A_TASK_RETENTION_MAX_FAILED_TASKS` | Max failed tasks to keep (0 = unlimited) | `50` |
+| **Task Management** | `A2A_TASK_RETENTION_CLEANUP_INTERVAL` | Cleanup frequency (0 = manual only) | `5m` |
+| **Storage** | `A2A_QUEUE_PROVIDER` | Storage backend (`memory` or `redis`) | `memory` |
+| **Storage** | `A2A_QUEUE_URL` | Redis connection URL (when using Redis) | - |
+| **Storage** | `A2A_QUEUE_MAX_SIZE` | Maximum queue size | `100` |
+| **Storage** | `A2A_QUEUE_CLEANUP_INTERVAL` | Task cleanup interval | `30s` |
+| **Authentication** | `A2A_AUTH_ENABLE` | Enable OIDC authentication | `false` |
 
 ## Development
 
@@ -85,17 +96,46 @@ task lint
 task fmt
 ```
 
+### Debugging
+
+Use the [A2A Debugger](https://github.com/inference-gateway/a2a-debugger) to test and debug your A2A agent during development. It provides a web interface for sending requests to your agent and inspecting responses, making it easier to troubleshoot issues and validate your implementation.
+
+```bash
+docker run --rm -it --network host ghcr.io/inference-gateway/a2a-debugger:latest --server-url http://localhost:8080 tasks submit "What are your skills?"
+```
+
+```bash
+docker run --rm -it --network host ghcr.io/inference-gateway/a2a-debugger:latest --server-url http://localhost:8080 tasks list
+```
+
+```bash
+docker run --rm -it --network host ghcr.io/inference-gateway/a2a-debugger:latest --server-url http://localhost:8080 tasks get <task ID>
+```
+
 ## Deployment
 
 ### Docker
 
+The Docker image can be built with custom version information using build arguments:
+
 ```bash
-docker build -t documentation-agent:latest .
-docker run -p 8080:8080 \
-  -e A2A_AGENT_CLIENT_PROVIDER=openai \
-  -e A2A_AGENT_CLIENT_API_KEY=your-api-key \
-  documentation-agent:latest
+# Build with default values from ADL
+docker build -t documentation-agent .
+
+# Build with custom version information
+docker build \
+  --build-arg VERSION=1.2.3 \
+  --build-arg AGENT_NAME="My Custom Agent" \
+  --build-arg AGENT_DESCRIPTION="Custom agent description" \
+  -t documentation-agent:1.2.3 .
 ```
+
+**Available Build Arguments:**
+- `VERSION` - Agent version (default: `0.1.0`)
+- `AGENT_NAME` - Agent name (default: `documentation-agent`)
+- `AGENT_DESCRIPTION` - Agent description (default: `Assistant for managing and searching through Documentations queries`)
+
+These values are embedded into the binary at build time using linker flags, making them accessible at runtime without requiring environment variables.
 
 ### Kubernetes
 

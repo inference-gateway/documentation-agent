@@ -1,77 +1,32 @@
 {
-  "_generated": {
-    "by": "A2A CLI",
-    "timestamp": "2025-09-03T01:48:25+02:00",
-    "version": "0.12.3",
-    "warning": "This file was automatically generated. DO NOT EDIT."
-  },
-  "capabilities": {
-    "streaming": true,
-    "pushNotifications": false,
-    "stateTransitionHistory": true
-  },
-  "defaultInputModes": [
-    "text"
-  ],
-  "defaultOutputModes": [
-    "text"
-  ],
-  "description": "Assistant for managing and searching through Documentations queries",
-  "documentationUrl": "https://docs.inference-gateway.com",
-  "name": "documentation-agent",
-  "preferredTransport": "JSONRPC",
-  "protocolVersion": "0.3.0",
-  "skills": [
-    {
-      "description": "Resolves library name to Context7-compatible library ID and returns matching libraries",
-      "id": "resolve_library_id",
-      "name": "resolve_library_id",
-      "schema": {
-        "properties": {
-          "libraryName": {
-            "description": "Library name to search for and retrieve a Context7-compatible library ID",
-            "type": "string"
-          }
-        },
-        "required": [
-          "libraryName"
-        ],
-        "type": "object"
-      },
-      "tags": [
-        "docs",
-        "libraries"
-      ]
-    },
-    {
-      "description": "Fetches up-to-date documentation for a library using Context7-compatible library ID",
-      "id": "get_library_docs",
-      "name": "get_library_docs",
-      "schema": {
-        "properties": {
-          "context7CompatibleLibraryID": {
-            "description": "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase') retrieved from resolve_library_id or directly from user query in the format '/org/project' or '/org/project/version'",
-            "type": "string"
-          },
-          "tokens": {
-            "description": "Maximum number of tokens of documentation to retrieve (default: 10000). Higher values provide more context but consume more tokens",
-            "type": "number"
-          },
-          "topic": {
-            "description": "Topic to focus documentation on (e.g., 'hooks', 'routing')",
-            "type": "string"
-          }
-        },
-        "required": [
-          "context7CompatibleLibraryID"
-        ],
-        "type": "object"
-      },
-      "tags": [
-        "docs",
-        "libraries"
-      ]
-    }
-  ],
-  "version": "0.1.0"
+	"name": "documentation-agent",
+	"version": "0.1.0",
+	"description": "Assistant for managing and searching through Documentations queries",
+	"protocolVersion": "0.3.0",
+	"url": "http://localhost:8080",
+	"preferredTransport": "JSONRPC",
+	"documentationUrl": "https://docs.inference-gateway.com",
+	"defaultInputModes": ["text"],
+	"defaultOutputModes": ["text"],
+	"capabilities": {
+		"streaming": true,
+		"pushNotifications": false,
+		"stateTransitionHistory": true
+	},
+	"skills": [
+		{
+			"id": "resolve_library_id",
+			"name": "resolve_library_id",
+			"description": "Resolves library name to Context7-compatible library ID and returns matching libraries",
+			"tags": ["docs","libraries"],
+			"schema": {"properties":{"libraryName":{"description":"Library name to search for and retrieve a Context7-compatible library ID","type":"string"}},"required":["libraryName"],"type":"object"}
+		},
+		{
+			"id": "get_library_docs",
+			"name": "get_library_docs",
+			"description": "Fetches up-to-date documentation for a library using Context7-compatible library ID",
+			"tags": ["docs","libraries"],
+			"schema": {"properties":{"context7CompatibleLibraryID":{"description":"Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase') retrieved from resolve_library_id or directly from user query in the format '/org/project' or '/org/project/version'","type":"string"},"tokens":{"description":"Maximum number of tokens of documentation to retrieve (default: 10000). Higher values provide more context but consume more tokens","type":"number"},"topic":{"description":"Topic to focus documentation on (e.g., 'hooks', 'routing')","type":"string"}},"required":["context7CompatibleLibraryID"],"type":"object"}
+		}
+	]
 }
