@@ -12,6 +12,7 @@ git.pkg-group = "common"
 
 docker.pkg-path = "docker"
 docker.pkg-group = "common"
+claude-code.pkg-path = "claude-code"
 
 [hook]
 on-activate = '''
