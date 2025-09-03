@@ -9,6 +9,13 @@ spec:
     streaming: true
     pushNotifications: false
     stateTransitionHistory: true
+  card:
+    url: "http://localhost:8080"
+    documentationUrl: "https://docs.inference-gateway.com"
+    protocolVersion: "0.3.0"
+    preferredTransport: "JSONRPC"
+    defaultInputModes: ["text"]
+    defaultOutputModes: ["text"]
   agent:
     provider: ""
     model: ""
@@ -19,28 +26,34 @@ spec:
   skills:
     - id: resolve_library_id
       name: resolve_library_id
-      description: "Resolves library by its id"
+      description: "Resolves library name to Context7-compatible library ID and returns matching libraries"
       tags: ["docs", "libraries"]
       schema:
         type: object
         properties:
-          id:
+          libraryName:
             type: string
-            description: "Library ID"
+            description: "Library name to search for and retrieve a Context7-compatible library ID"
         required:
-          - id
+          - libraryName
     - id: get_library_docs
       name: get_library_docs
-      description: "Get the docs for the specific library"
+      description: "Fetches up-to-date documentation for a library using Context7-compatible library ID"
       tags: ["docs", "libraries"]
       schema:
         type: object
         properties:
-          library:
+          context7CompatibleLibraryID:
             type: string
-            description: "Library Name"
+            description: "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase') retrieved from resolve_library_id or directly from user query in the format '/org/project' or '/org/project/version'"
+          tokens:
+            type: number
+            description: "Maximum number of tokens of documentation to retrieve (default: 10000). Higher values provide more context but consume more tokens"
+          topic:
+            type: string
+            description: "Topic to focus documentation on (e.g., 'hooks', 'routing')"
         required:
-          - library
+          - context7CompatibleLibraryID
   server:
     port: 8080
     debug: false

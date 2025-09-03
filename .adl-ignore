@@ -9,7 +9,11 @@
 # - Directories: build/
 # - Comments: lines starting with #
 
-tools/*
+skills/*
+Taskfile.yml
+Dockerfile
+k8s/deployment.yaml
+.env.example
 
 # Go dependency files
 go.sum
