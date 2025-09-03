@@ -86,7 +86,7 @@ jobs:
         id: semantic
         env:
           CI: true
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
           # Create first release if not exists - Initial Release Version 0.1.0
           if ! gh release view v0.1.0 >/dev/null 2>&1; then
