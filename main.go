@@ -72,8 +72,14 @@ func main() {
 	toolBox.AddTool(getLibraryDocsSkill)
 	logger.Info("registered skill", zap.String("skill", "get_library_docs"), zap.String("description", "Fetches up-to-date documentation for a library using Context7-compatible library ID"))
 
+	llmClient, err := server.NewOpenAICompatibleLLMClient(&cfg.A2A.AgentConfig, logger)
+	if err != nil {
+		logger.Fatal("failed to create LLM client", zap.Error(err))
+	}
+
 	agent, err := server.NewAgentBuilder(logger).
 		WithConfig(&cfg.A2A.AgentConfig).
+		WithLLMClient(llmClient).
 		WithToolBox(toolBox).
 		WithSystemPrompt(`You are a helpful assistant for managing and searching through Documentations queries.
 `).
