@@ -216,7 +216,7 @@ func (s *GetLibraryDocsSkill) Handler(ctx context.Context, args map[string]any) 
 		}
 		s.logger.Warn("MCP returned error", zap.String("error", errorMsg))
 		if strings.Contains(errorMsg, "context7CompatibleLibraryID") {
-			return fmt.Sprintf(`{"error": "Parameter name mismatch - Context7 API may expect different field names"}`, errorMsg), nil
+			return fmt.Sprint(`{"error": "Parameter name mismatch - Context7 API may expect different field names"}`), nil
 		}
 		return fmt.Sprintf(`{"error": "%s"}`, errorMsg), nil
 	}
