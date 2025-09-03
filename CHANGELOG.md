@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.1](https://github.com/inference-gateway/documentation-agent/compare/v0.2.0...v0.2.1) (2025-09-03)
+
+### 🐛 Bug Fixes
+
+* Correct output variable syntax in release job ([cf947a2](https://github.com/inference-gateway/documentation-agent/commit/cf947a2ba42a6d6a2d13ba34b5c3a461abbf5449))
+
 ## [0.2.0](https://github.com/inference-gateway/documentation-agent/compare/v0.1.0...v0.2.0) (2025-09-03)
 
 ### ✨ Features
