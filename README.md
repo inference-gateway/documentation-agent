@@ -140,19 +140,12 @@ docker build \
 - `AGENT_DESCRIPTION` - Agent description (default: `Assistant for managing and searching through Documentations queries`)
 
 These values are embedded into the binary at build time using linker flags, making them accessible at runtime without requiring environment variables.
+
 ### Kubernetes
 
 ```bash
-# Deploy to Kubernetes cluster
 kubectl apply -f k8s/
-
-# Or use the task command
-task deploy
 ```
-
-**Requirements:**
-- kubectl configured with cluster access
-- Kubernetes cluster with appropriate permissions
 
 ## License
 

@@ -145,11 +145,9 @@ curl -X POST http://localhost:8080/skills/get_library_docs \
 ## Deployment
 
 
-
-**Deployment Type**: Kubernetes
-- Kubernetes manifests available in `k8s/` directory
-- Use `kubectl apply -f k8s/` to deploy
-
+**Deployment Type**: Manual
+- Build and run the agent binary directly
+- Use provided Dockerfile for containerized deployment
 
 
 
@@ -209,7 +207,7 @@ This agent was generated using ADL CLI v0.1.0 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent
-- **Generated**: 2025-09-12 14:39:45 UTC
+- **Generated**: 2025-09-12 14:44:29 UTC
 - **ADL Version**: adl.dev/v1
 
 ---

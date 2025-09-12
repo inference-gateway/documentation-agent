@@ -9,8 +9,6 @@
 # - Directories: build/
 # - Comments: lines starting with #
 
-Taskfile.yml
-
 # Go dependency files
 go.sum
 
