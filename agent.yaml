@@ -64,6 +64,8 @@ spec:
   scm:
     provider: github
     url: "https://github.com/inference-gateway/documentation-agent"
+    github_app: true
+    issue_templates: true
   sandbox:
     flox:
       enabled: true

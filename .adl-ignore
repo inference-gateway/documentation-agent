@@ -9,12 +9,7 @@
 # - Directories: build/
 # - Comments: lines starting with #
 
-skills/*
-Dockerfile
 Taskfile.yml
-k8s/deployment.yaml
-.env.example
-.github/workflows/cd.yml
 
 # Go dependency files
 go.sum
@@ -22,3 +17,6 @@ go.sum
 # Add your own files to ignore here:
 # my-custom-file.go
 # config/secrets.yaml
+
+skills/get_library_docs.go
+skills/resolve_library_id.go
