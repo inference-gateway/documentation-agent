@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.2](https://github.com/inference-gateway/documentation-agent/compare/v0.2.1...v0.2.2) (2025-09-12)
+
+### ♻️ Improvements
+
+* Re-generate files ([4f8a4cf](https://github.com/inference-gateway/documentation-agent/commit/4f8a4cf69dbe67039271a65138cab71d82ff8be8))
+* Re-run generate - update deployment instructions and remove Kubernetes manifests ([b52416e](https://github.com/inference-gateway/documentation-agent/commit/b52416e5c46f2bc52afb6e32973e630daf84bf75))
+* Remove PRD.md as it is no longer needed ([97335cc](https://github.com/inference-gateway/documentation-agent/commit/97335cca887c86efcc15fd4cd5d9587e555162d1))
+* Update documentation and configuration files; add agent capabilities and deployment instructions ([3bfe662](https://github.com/inference-gateway/documentation-agent/commit/3bfe6622f8085c86d8bf4a59b6500412278c2b54))
+* Update generated files to reflect ADL CLI v0.19.12 and clean up documentation ([62a1144](https://github.com/inference-gateway/documentation-agent/commit/62a1144f6629e1747e365b7b8f814fc0a9e8b1af))
+
 ## [0.2.1](https://github.com/inference-gateway/documentation-agent/compare/v0.2.0...v0.2.1) (2025-09-03)
 
 ### 🐛 Bug Fixes
