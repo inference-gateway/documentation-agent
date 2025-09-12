@@ -10,8 +10,8 @@
 # - Comments: lines starting with #
 
 skills/*
-Taskfile.yml
 Dockerfile
+Taskfile.yml
 k8s/deployment.yaml
 .env.example
 .github/workflows/cd.yml
