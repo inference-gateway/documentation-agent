@@ -36,6 +36,8 @@ spec:
             description: "Library name to search for and retrieve a Context7-compatible library ID"
         required:
           - libraryName
+      inject:
+        - logger
     - id: get_library_docs
       name: get_library_docs
       description: "Fetches up-to-date documentation for a library using Context7-compatible library ID"
@@ -54,6 +56,8 @@ spec:
             description: "Topic to focus documentation on (e.g., 'hooks', 'routing')"
         required:
           - context7CompatibleLibraryID
+      inject:
+        - logger
   server:
     port: 8080
     debug: false
