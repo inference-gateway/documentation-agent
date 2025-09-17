@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.8](https://github.com/inference-gateway/documentation-agent/compare/v0.2.7...v0.2.8) (2025-09-17)
+
+### ♻️ Improvements
+
+* Improve CI/CD pipeline with Docker image build and push steps ([78677ac](https://github.com/inference-gateway/documentation-agent/commit/78677ac5f808307b877de580592ea073eb44b7e6))
+
+### 🐛 Bug Fixes
+
+* Add installation step for ADL CLI in CI/CD workflow ([e84279c](https://github.com/inference-gateway/documentation-agent/commit/e84279cf34804a994a9875e7d6bbf8a129682090))
+
+### 🔧 Miscellaneous
+
+* Run task genrate - update ADL CLI version to 0.20.12 and increment agent version to 0.2.7 ([2b0213a](https://github.com/inference-gateway/documentation-agent/commit/2b0213a915042b904704f37bfd265eb94c786419))
+
 ## [0.2.7](https://github.com/inference-gateway/documentation-agent/compare/v0.2.6...v0.2.7) (2025-09-17)
 
 ### ♻️ Improvements
