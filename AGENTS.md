@@ -5,7 +5,7 @@ This file describes the agents available in this A2A (Agent-to-Agent) system.
 ## Agent Overview
 
 ### documentation-agent
-**Version**: 0.1.0  
+**Version**: 0.2.6  
 **Description**: Assistant for managing and searching through Documentations queries
 
 This agent is built using the Agent Definition Language (ADL) and provides A2A communication capabilities.
@@ -203,11 +203,11 @@ task test:coverage
 
 ## Agent Metadata
 
-This agent was generated using ADL CLI v0.1.0 with the following configuration:
+This agent was generated using ADL CLI v0.2.6 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent
-- **Generated**: 2025-09-17 23:48:02 UTC
+- **Generated**: 2025-09-18 00:36:33 UTC
 - **ADL Version**: adl.dev/v1
 
 ---

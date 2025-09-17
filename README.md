@@ -2,7 +2,7 @@
 
 # Documentation-Agent
 [![CI](https://github.com/inference-gateway/documentation-agent/workflows/CI/badge.svg)](https://github.com/inference-gateway/documentation-agent/actions/workflows/ci.yml)
-[![Go Version](https://img.shields.io/badge/Go-1.24+-00ADD8?style=flat&logo=go)](https://golang.org)
+[![Go Version](https://img.shields.io/badge/Go-1.24.5+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![A2A Protocol](https://img.shields.io/badge/A2A-Protocol-blue?style=flat)](https://github.com/inference-gateway/adk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -135,7 +135,7 @@ docker build \
 ```
 
 **Available Build Arguments:**
-- `VERSION` - Agent version (default: `0.1.0`)
+- `VERSION` - Agent version (default: `0.2.6`)
 - `AGENT_NAME` - Agent name (default: `documentation-agent`)
 - `AGENT_DESCRIPTION` - Agent description (default: `Assistant for managing and searching through Documentations queries`)
 

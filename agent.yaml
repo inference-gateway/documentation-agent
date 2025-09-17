@@ -70,7 +70,7 @@ spec:
   language:
     go:
       module: "github.com/inference-gateway/documentation-agent"
-      version: "0.2.6"
+      version: "1.24.5"
   scm:
     provider: github
     url: "https://github.com/inference-gateway/documentation-agent"
