@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.7](https://github.com/inference-gateway/documentation-agent/compare/v0.2.6...v0.2.7) (2025-09-17)
+
+### ♻️ Improvements
+
+* Make codegen less noisy ([a2062a7](https://github.com/inference-gateway/documentation-agent/commit/a2062a737b1a1979dd7f0c1bc823b0ab3fb1af68))
+
+### 🐛 Bug Fixes
+
+* Update Go version to 1.24.5 and increment agent version to 0.2.6 ([6741726](https://github.com/inference-gateway/documentation-agent/commit/674172668e2fd5e4a3b8f8a32e4c3db54ccc85de))
+
 ## [0.2.6](https://github.com/inference-gateway/documentation-agent/compare/v0.2.5...v0.2.6) (2025-09-17)
 
 ### ♻️ Improvements
