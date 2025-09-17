@@ -135,7 +135,7 @@ docker build \
 ```
 
 **Available Build Arguments:**
-- `VERSION` - Agent version (default: `0.2.6`)
+- `VERSION` - Agent version (default: `0.2.7`)
 - `AGENT_NAME` - Agent name (default: `documentation-agent`)
 - `AGENT_DESCRIPTION` - Agent description (default: `Assistant for managing and searching through Documentations queries`)
 
