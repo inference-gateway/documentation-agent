@@ -14,8 +14,10 @@ spec:
     documentationUrl: "https://docs.inference-gateway.com"
     protocolVersion: "0.3.0"
     preferredTransport: "JSONRPC"
-    defaultInputModes: ["text"]
-    defaultOutputModes: ["text"]
+    defaultInputModes:
+      - text
+    defaultOutputModes:
+      - text
   agent:
     provider: ""
     model: ""
@@ -41,7 +43,9 @@ spec:
     - id: get_library_docs
       name: get_library_docs
       description: "Fetches up-to-date documentation for a library using Context7-compatible library ID"
-      tags: ["docs", "libraries"]
+      tags:
+        - docs
+        - libraries
       schema:
         type: object
         properties:
