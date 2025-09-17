@@ -207,7 +207,6 @@ This agent was generated using ADL CLI v0.2.6 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent
-- **Generated**: 2025-09-18 00:36:33 UTC
 - **ADL Version**: adl.dev/v1
 
 ---
