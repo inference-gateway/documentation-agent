@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.6](https://github.com/inference-gateway/documentation-agent/compare/v0.2.5...v0.2.6) (2025-09-17)
+
+### ♻️ Improvements
+
+* Add @semantic-release/exec plugin for version update in agent.yaml ([4c99456](https://github.com/inference-gateway/documentation-agent/commit/4c99456e937c13b2c2bc518f4d8d8c2c98997994))
+
+### 🎨 Miscellaneous
+
+* Format tags in resolve_library_id skill for consistency ([35f05f9](https://github.com/inference-gateway/documentation-agent/commit/35f05f917361a37d3367c7ba91ddbbc295ddbcbf))
+* Format YAML arrays for default input/output modes and library tags ([e6b6609](https://github.com/inference-gateway/documentation-agent/commit/e6b6609bc462666ae0d673e1f8029ff44f262822))
+
 ## [0.2.5](https://github.com/inference-gateway/documentation-agent/compare/v0.2.4...v0.2.5) (2025-09-17)
 
 ### ♻️ Improvements

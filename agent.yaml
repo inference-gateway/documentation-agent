@@ -3,7 +3,7 @@ kind: Agent
 metadata:
   name: documentation-agent
   description: "Assistant for managing and searching through Documentations queries"
-  version: "0.1.0"
+  version: "0.2.6"
 spec:
   capabilities:
     streaming: true
@@ -70,7 +70,7 @@ spec:
   language:
     go:
       module: "github.com/inference-gateway/documentation-agent"
-      version: "1.24"
+      version: "0.2.6"
   scm:
     provider: github
     url: "https://github.com/inference-gateway/documentation-agent"
