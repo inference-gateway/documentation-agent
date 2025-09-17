@@ -60,8 +60,8 @@ plugins:
       publishCmd: |
         echo "Building and pushing Docker image for version ${nextRelease.version}"
         docker buildx build --platform linux/amd64,linux/arm64 \
-          --tag ghcr.io/${GITHUB_REPOSITORY,,}:${nextRelease.version} \
-          --tag ghcr.io/${GITHUB_REPOSITORY,,}:latest \
+          --tag ghcr.io/${GITHUB_REPOSITORY}:${nextRelease.version} \
+          --tag ghcr.io/${GITHUB_REPOSITORY}:latest \
           --push .
 
   - - '@semantic-release/git'
