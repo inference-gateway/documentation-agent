@@ -53,9 +53,13 @@ plugins:
       changelogTitle: "# Changelog\n\nAll notable changes to this project will be documented in this file."
       verifyConditions: true
 
+  - - '@semantic-release/exec'
+    - prepareCmd: 'sed -i "s/version: \"[^\"]*\"/version: \"${nextRelease.version}\"/" agent.yaml'
+
   - - '@semantic-release/git'
     - assets:
         - CHANGELOG.md
+        - agent.yaml
       message: "chore(release): 🔖 ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
 
   - - '@semantic-release/github'
