@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.9](https://github.com/inference-gateway/documentation-agent/compare/v0.2.8...v0.2.9) (2025-09-17)
+
+### 🐛 Bug Fixes
+
+* Correct Docker image tag formatting in publish command ([c0d8a6a](https://github.com/inference-gateway/documentation-agent/commit/c0d8a6ad1b3847defb1e66e155819dd4e678b510))
+
 ## [0.2.8](https://github.com/inference-gateway/documentation-agent/compare/v0.2.7...v0.2.8) (2025-09-17)
 
 ### ♻️ Improvements

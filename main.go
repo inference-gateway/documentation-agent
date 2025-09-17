@@ -22,7 +22,7 @@ import (
 )
 
 var (
-	Version          = "0.2.8"
+	Version          = "0.2.9"
 	AgentName        = "documentation-agent"
 	AgentDescription = "Assistant for managing and searching through Documentations queries"
 )
