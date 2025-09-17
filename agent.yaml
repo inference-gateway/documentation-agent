@@ -29,7 +29,9 @@ spec:
     - id: resolve_library_id
       name: resolve_library_id
       description: "Resolves library name to Context7-compatible library ID and returns matching libraries"
-      tags: ["docs", "libraries"]
+      tags:
+        - docs
+        - libraries
       schema:
         type: object
         properties:
