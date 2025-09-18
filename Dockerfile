@@ -7,7 +7,7 @@ FROM golang:1.24-alpine AS builder
 # Build arguments for version injection
 ARG VERSION="0.2.10"
 ARG AGENT_NAME="documentation-agent"
-ARG AGENT_DESCRIPTION="Assistant for managing and searching through Documentations queries"
+ARG AGENT_DESCRIPTION="Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
 
 WORKDIR /app
 
@@ -40,7 +40,7 @@ FROM alpine:latest
 # Build arguments for labels
 ARG VERSION="0.2.10"
 ARG AGENT_NAME="documentation-agent"
-ARG AGENT_DESCRIPTION="Assistant for managing and searching through Documentations queries"
+ARG AGENT_DESCRIPTION="Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
 
 # Add OCI image labels for container metadata
 LABEL org.opencontainers.image.title="${AGENT_NAME}"

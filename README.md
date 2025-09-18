@@ -6,7 +6,7 @@
 [![A2A Protocol](https://img.shields.io/badge/A2A-Protocol-blue?style=flat)](https://github.com/inference-gateway/adk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Assistant for managing and searching through Documentations queries**
+**Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources**
 
 A production-ready [Agent-to-Agent (A2A)](https://github.com/inference-gateway/adk) server that provides AI-powered capabilities through a standardized protocol.
 
@@ -137,7 +137,7 @@ docker build \
 **Available Build Arguments:**
 - `VERSION` - Agent version (default: `0.2.10`)
 - `AGENT_NAME` - Agent name (default: `documentation-agent`)
-- `AGENT_DESCRIPTION` - Agent description (default: `Assistant for managing and searching through Documentations queries`)
+- `AGENT_DESCRIPTION` - Agent description (default: `Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources`)
 
 These values are embedded into the binary at build time using linker flags, making them accessible at runtime without requiring environment variables.
 

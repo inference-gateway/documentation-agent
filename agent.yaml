@@ -2,7 +2,7 @@ apiVersion: adl.dev/v1
 kind: Agent
 metadata:
   name: documentation-agent
-  description: "Assistant for managing and searching through Documentations queries"
+  description: "Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
   version: "0.2.10"
 spec:
   capabilities:
@@ -22,7 +22,7 @@ spec:
     provider: ""
     model: ""
     systemPrompt: |
-      You are a helpful assistant for managing and searching through Documentations queries.
+      You are an intelligent documentation retrieval assistant that specializes in finding and fetching relevant documentation from Context7-compatible sources. You can resolve library names to their proper identifiers and retrieve targeted documentation based on specific topics or requirements.
     maxTokens: 4096
     temperature: 0.7
   skills:

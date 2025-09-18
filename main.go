@@ -24,7 +24,7 @@ import (
 var (
 	Version          = "0.2.10"
 	AgentName        = "documentation-agent"
-	AgentDescription = "Assistant for managing and searching through Documentations queries"
+	AgentDescription = "Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
 )
 
 func main() {
@@ -65,7 +65,7 @@ func main() {
 		WithLLMClient(llmClient).
 		WithToolBox(toolBox).
 		WithMaxChatCompletion(cfg.A2A.AgentConfig.MaxChatCompletionIterations).
-		WithSystemPrompt(`You are a helpful assistant for managing and searching through Documentations queries.
+		WithSystemPrompt(`You are an intelligent documentation retrieval assistant that specializes in finding and fetching relevant documentation from Context7-compatible sources. You can resolve library names to their proper identifiers and retrieve targeted documentation based on specific topics or requirements.
 `).
 		Build()
 	if err != nil {

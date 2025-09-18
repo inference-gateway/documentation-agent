@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-documentation-agent is an A2A (Agent-to-Agent) server implementing the [A2A Protocol](https://github.com/inference-gateway/adk) for agent-to-agent communication. Assistant for managing and searching through Documentations queries. The project is automatically generated from ADL (Agent Definition Language) specifications defined in `agent.yaml`.
+documentation-agent is an A2A (Agent-to-Agent) server implementing the [A2A Protocol](https://github.com/inference-gateway/adk) for agent-to-agent communication. Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources. The project is automatically generated from ADL (Agent Definition Language) specifications defined in `agent.yaml`.
 
 ## Core Architecture
 
