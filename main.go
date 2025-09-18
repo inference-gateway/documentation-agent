@@ -22,7 +22,7 @@ import (
 )
 
 var (
-	Version          = "0.2.17"
+	Version          = "0.2.18"
 	AgentName        = "documentation-agent"
 	AgentDescription = "Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
 )

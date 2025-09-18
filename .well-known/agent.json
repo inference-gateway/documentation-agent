@@ -1,6 +1,6 @@
 {
 	"name": "documentation-agent",
-	"version": "0.2.17",
+	"version": "0.2.18",
 	"description": "Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources",
 	"protocolVersion": "0.3.0",
 	"url": "http://localhost:8080",
