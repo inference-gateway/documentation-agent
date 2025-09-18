@@ -5,7 +5,7 @@ This file describes the agents available in this A2A (Agent-to-Agent) system.
 ## Agent Overview
 
 ### documentation-agent
-**Version**: 0.2.11  
+**Version**: 0.2.12  
 **Description**: Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources
 
 This agent is built using the Agent Definition Language (ADL) and provides A2A communication capabilities.
@@ -203,7 +203,7 @@ task test:coverage
 
 ## Agent Metadata
 
-This agent was generated using ADL CLI v0.2.11 with the following configuration:
+This agent was generated using ADL CLI v0.2.12 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.12](https://github.com/inference-gateway/documentation-agent/compare/v0.2.11...v0.2.12) (2025-09-18)
+
+### 🐛 Bug Fixes
+
+* Improve Docker build command with OCI image labels and conditional logic for release channels ([890f2c4](https://github.com/inference-gateway/documentation-agent/commit/890f2c45726cb39f984fa75c3b47a682994d2a06))
+
 ## [0.2.11](https://github.com/inference-gateway/documentation-agent/compare/v0.2.10...v0.2.11) (2025-09-18)
 
 ### ♻️ Improvements

@@ -3,7 +3,7 @@ kind: Agent
 metadata:
   name: documentation-agent
   description: "Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
-  version: "0.2.11"
+  version: "0.2.12"
 spec:
   capabilities:
     streaming: true
