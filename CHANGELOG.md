@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.16](https://github.com/inference-gateway/documentation-agent/compare/v0.2.15...v0.2.16) (2025-09-18)
+
+### 🐛 Bug Fixes
+
+* Update Docker build command to conditionally tag images with 'latest' ([ec33aad](https://github.com/inference-gateway/documentation-agent/commit/ec33aad69518e3befe40c54a5dbbc190e9f458f5))
+* Update Docker build command to use 'index:' prefix for image annotations ([8263c38](https://github.com/inference-gateway/documentation-agent/commit/8263c38bce0bdb3bd14737974188ff06c9863f51))
+
 ## [0.2.15](https://github.com/inference-gateway/documentation-agent/compare/v0.2.14...v0.2.15) (2025-09-18)
 
 ### 🐛 Bug Fixes
