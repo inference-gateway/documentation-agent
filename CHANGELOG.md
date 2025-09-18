@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.14](https://github.com/inference-gateway/documentation-agent/compare/v0.2.13...v0.2.14) (2025-09-18)
+
+### ♻️ Improvements
+
+* Update Docker build command to use a variable for image description ([3de82c6](https://github.com/inference-gateway/documentation-agent/commit/3de82c6f56f51e74c0f494bf0e94da34e576ef3c))
+
+### 🐛 Bug Fixes
+
+* Correct Docker build command to use consistent variable syntax for image source label ([ee79757](https://github.com/inference-gateway/documentation-agent/commit/ee7975765370d8a2e12bd0f71c072866ed6a9c20))
+
 ## [0.2.13](https://github.com/inference-gateway/documentation-agent/compare/v0.2.12...v0.2.13) (2025-09-18)
 
 ### 🐛 Bug Fixes

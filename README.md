@@ -135,7 +135,7 @@ docker build \
 ```
 
 **Available Build Arguments:**
-- `VERSION` - Agent version (default: `0.2.13`)
+- `VERSION` - Agent version (default: `0.2.14`)
 - `AGENT_NAME` - Agent name (default: `documentation-agent`)
 - `AGENT_DESCRIPTION` - Agent description (default: `Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources`)
 
