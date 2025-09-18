@@ -34,7 +34,10 @@ jobs:
       uses: arduino/setup-task@v2
       with:
         version: 3.x
-    
+
+    - name: Validate ADL
+      run: task validate
+
     - name: Download dependencies
       run: go mod download
     

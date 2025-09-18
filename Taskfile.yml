@@ -9,6 +9,10 @@ vars:
   VERSION: 0.2.18
 
 tasks:
+  validate:
+    desc: Validate ADL
+    cmd: adl validate agent.yaml
+
   generate:
     desc: Generate code from ADL
     cmd: adl generate --file agent.yaml --output . --overwrite --ci --cd --ai
