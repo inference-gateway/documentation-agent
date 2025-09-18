@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.17](https://github.com/inference-gateway/documentation-agent/compare/v0.2.16...v0.2.17) (2025-09-18)
+
+### ♻️ Improvements
+
+* Improve Docker build command with caching options ([2960dcd](https://github.com/inference-gateway/documentation-agent/commit/2960dcd87a49d82fa3834d3f77a2760520a4e7ae))
+
 ## [0.2.16](https://github.com/inference-gateway/documentation-agent/compare/v0.2.15...v0.2.16) (2025-09-18)
 
 ### 🐛 Bug Fixes

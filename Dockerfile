@@ -5,7 +5,7 @@
 FROM golang:1.24-alpine AS builder
 
 # Build arguments for version injection
-ARG VERSION="0.2.16"
+ARG VERSION="0.2.17"
 ARG AGENT_NAME="documentation-agent"
 ARG AGENT_DESCRIPTION="Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
 
