@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.15](https://github.com/inference-gateway/documentation-agent/compare/v0.2.14...v0.2.15) (2025-09-18)
+
+### 🐛 Bug Fixes
+
+* Update Docker build command to use annotations instead of labels for image metadata ([ca803d0](https://github.com/inference-gateway/documentation-agent/commit/ca803d0c3e3ae15645d9dc42bb973a7523290bcb))
+
 ## [0.2.14](https://github.com/inference-gateway/documentation-agent/compare/v0.2.13...v0.2.14) (2025-09-18)
 
 ### ♻️ Improvements
