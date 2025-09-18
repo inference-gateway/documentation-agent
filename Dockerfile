@@ -5,7 +5,7 @@
 FROM golang:1.24-alpine AS builder
 
 # Build arguments for version injection
-ARG VERSION="0.2.10"
+ARG VERSION="0.2.11"
 ARG AGENT_NAME="documentation-agent"
 ARG AGENT_DESCRIPTION="Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
 
@@ -36,18 +36,6 @@ RUN CGO_ENABLED=0 GOOS=linux go build \
 
 # Final stage
 FROM alpine:latest
-
-# Build arguments for labels
-ARG VERSION="0.2.10"
-ARG AGENT_NAME="documentation-agent"
-ARG AGENT_DESCRIPTION="Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
-
-# Add OCI image labels for container metadata
-LABEL org.opencontainers.image.title="${AGENT_NAME}"
-LABEL org.opencontainers.image.description="${AGENT_DESCRIPTION}"
-LABEL org.opencontainers.image.version="${VERSION}"
-LABEL org.opencontainers.image.source="https://github.com/inference-gateway/documentation-agent"
-LABEL org.opencontainers.image.vendor="Inference Gateway"
 
 RUN apk --no-cache add ca-certificates tzdata
 

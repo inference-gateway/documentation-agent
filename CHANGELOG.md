@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.11](https://github.com/inference-gateway/documentation-agent/compare/v0.2.10...v0.2.11) (2025-09-18)
+
+### ♻️ Improvements
+
+* Add OCI image labels for container metadata in Dockerfile ([352a3eb](https://github.com/inference-gateway/documentation-agent/commit/352a3eb99ebfcb4b62a98e364646efc228a41116))
+* Update agent description to accurately reflect functionality across documentation ([32cbdce](https://github.com/inference-gateway/documentation-agent/commit/32cbdced372429c3ccd4a8f38d86a474cd223bb6))
+
+### 🐛 Bug Fixes
+
+* Update ADL CLI version to 0.20.13 in generated files ([e59cfb8](https://github.com/inference-gateway/documentation-agent/commit/e59cfb8c087cd85e357891b733f2d0ddb0bd4579))
+
 ## [0.2.10](https://github.com/inference-gateway/documentation-agent/compare/v0.2.9...v0.2.10) (2025-09-18)
 
 ### 🐛 Bug Fixes
