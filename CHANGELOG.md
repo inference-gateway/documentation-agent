@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.13](https://github.com/inference-gateway/documentation-agent/compare/v0.2.12...v0.2.13) (2025-09-18)
+
+### 🐛 Bug Fixes
+
+* Update Docker build command to use lowercase repository name for image source label ([5c33637](https://github.com/inference-gateway/documentation-agent/commit/5c33637ee55320e3460105560b128f1215639d6b))
+
 ## [0.2.12](https://github.com/inference-gateway/documentation-agent/compare/v0.2.11...v0.2.12) (2025-09-18)
 
 ### 🐛 Bug Fixes
