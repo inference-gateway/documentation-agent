@@ -63,7 +63,7 @@ plugins:
         
         if [[ "$GITHUB_REF_NAME" == rc/* ]]; then
           docker buildx build --platform linux/amd64,linux/arm64 \
-            --label "org.opencontainers.image.source=https://github.com/${GITHUB_REPOSITORY}" \
+            --label "org.opencontainers.image.source=https://github.com/${REPO_LOWER}" \
             --label "org.opencontainers.image.description=Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources" \
             --label "org.opencontainers.image.version=${nextRelease.version}" \
             --label "org.opencontainers.image.title=documentation-agent" \
@@ -72,7 +72,7 @@ plugins:
             --push .
         else
           docker buildx build --platform linux/amd64,linux/arm64 \
-            --label "org.opencontainers.image.source=https://github.com/${GITHUB_REPOSITORY}" \
+            --label "org.opencontainers.image.source=https://github.com/${REPO_LOWER}" \
             --label "org.opencontainers.image.description=Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources" \
             --label "org.opencontainers.image.version=${nextRelease.version}" \
             --label "org.opencontainers.image.title=documentation-agent" \
