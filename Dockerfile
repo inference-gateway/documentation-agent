@@ -37,6 +37,18 @@ RUN CGO_ENABLED=0 GOOS=linux go build \
 # Final stage
 FROM alpine:latest
 
+# Build arguments for labels
+ARG VERSION="0.2.10"
+ARG AGENT_NAME="documentation-agent"
+ARG AGENT_DESCRIPTION="Assistant for managing and searching through Documentations queries"
+
+# Add OCI image labels for container metadata
+LABEL org.opencontainers.image.title="${AGENT_NAME}"
+LABEL org.opencontainers.image.description="${AGENT_DESCRIPTION}"
+LABEL org.opencontainers.image.version="${VERSION}"
+LABEL org.opencontainers.image.source="https://github.com/inference-gateway/documentation-agent"
+LABEL org.opencontainers.image.vendor="Inference Gateway"
+
 RUN apk --no-cache add ca-certificates tzdata
 
 WORKDIR /root/
