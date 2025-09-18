@@ -65,6 +65,10 @@ plugins:
         
         if [[ "$GITHUB_REF_NAME" == rc/* ]]; then
           docker buildx build --platform linux/amd64,linux/arm64 \
+            --cache-from type=gha \
+            --cache-from type=registry,ref=ghcr.io/$REPO_LOWER:buildcache \
+            --cache-to type=gha,mode=max \
+            --cache-to type=registry,ref=ghcr.io/$REPO_LOWER:buildcache,mode=max \
             --annotation "index:org.opencontainers.image.source=https://github.com/$REPO_LOWER" \
             --annotation "index:org.opencontainers.image.description=$DESCRIPTION" \
             --annotation "index:org.opencontainers.image.version=${nextRelease.version}" \
@@ -73,6 +77,10 @@ plugins:
             --push .
         else
           docker buildx build --platform linux/amd64,linux/arm64 \
+            --cache-from type=gha \
+            --cache-from type=registry,ref=ghcr.io/$REPO_LOWER:buildcache \
+            --cache-to type=gha,mode=max \
+            --cache-to type=registry,ref=ghcr.io/$REPO_LOWER:buildcache,mode=max \
             --annotation "index:org.opencontainers.image.source=https://github.com/$REPO_LOWER" \
             --annotation "index:org.opencontainers.image.description=$DESCRIPTION" \
             --annotation "index:org.opencontainers.image.version=${nextRelease.version}" \
