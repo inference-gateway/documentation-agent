@@ -1,6 +1,6 @@
 {
 	"name": "documentation-agent",
-	"version": "0.2.9",
+	"version": "0.2.10",
 	"description": "Assistant for managing and searching through Documentations queries",
 	"protocolVersion": "0.3.0",
 	"url": "http://localhost:8080",

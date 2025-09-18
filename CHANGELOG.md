@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.10](https://github.com/inference-gateway/documentation-agent/compare/v0.2.9...v0.2.10) (2025-09-18)
+
+### 🐛 Bug Fixes
+
+* integrate container publishing into semantic-release workflow ([9d7b3c7](https://github.com/inference-gateway/documentation-agent/commit/9d7b3c71fd48c0580aadc28ff40def1a269ae493))
+
 ## [0.2.9](https://github.com/inference-gateway/documentation-agent/compare/v0.2.8...v0.2.9) (2025-09-17)
 
 ### 🐛 Bug Fixes
