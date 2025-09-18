@@ -64,19 +64,19 @@ plugins:
         
         if [[ "$GITHUB_REF_NAME" == rc/* ]]; then
           docker buildx build --platform linux/amd64,linux/arm64 \
-            --label "org.opencontainers.image.source=https://github.com/$REPO_LOWER" \
-            --label "org.opencontainers.image.description=$DESCRIPTION" \
-            --label "org.opencontainers.image.version=${nextRelease.version}" \
-            --label "org.opencontainers.image.title=documentation-agent" \
+            --annotation "org.opencontainers.image.source=https://github.com/$REPO_LOWER" \
+            --annotation "org.opencontainers.image.description=$DESCRIPTION" \
+            --annotation "org.opencontainers.image.version=${nextRelease.version}" \
+            --annotation "org.opencontainers.image.title=documentation-agent" \
             --tag ghcr.io/$REPO_LOWER:${nextRelease.version} \
             --tag ghcr.io/$REPO_LOWER:latest \
             --push .
         else
           docker buildx build --platform linux/amd64,linux/arm64 \
-            --label "org.opencontainers.image.source=https://github.com/$REPO_LOWER" \
-            --label "org.opencontainers.image.description=$DESCRIPTION" \
-            --label "org.opencontainers.image.version=${nextRelease.version}" \
-            --label "org.opencontainers.image.title=documentation-agent" \
+            --annotation "org.opencontainers.image.source=https://github.com/$REPO_LOWER" \
+            --annotation "org.opencontainers.image.description=$DESCRIPTION" \
+            --annotation "org.opencontainers.image.version=${nextRelease.version}" \
+            --annotation "org.opencontainers.image.title=documentation-agent" \
             --tag ghcr.io/$REPO_LOWER:${nextRelease.version} \
             --push .
         fi
