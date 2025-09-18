@@ -60,11 +60,12 @@ plugins:
       publishCmd: |
         echo "Building and pushing Docker image for version ${nextRelease.version}"
         REPO_LOWER=$(echo "$GITHUB_REPOSITORY" | tr '[:upper:]' '[:lower:]')
+        DESCRIPTION="Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
         
         if [[ "$GITHUB_REF_NAME" == rc/* ]]; then
           docker buildx build --platform linux/amd64,linux/arm64 \
             --label "org.opencontainers.image.source=https://github.com/$REPO_LOWER" \
-            --label "org.opencontainers.image.description=Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources" \
+            --label "org.opencontainers.image.description=$DESCRIPTION" \
             --label "org.opencontainers.image.version=${nextRelease.version}" \
             --label "org.opencontainers.image.title=documentation-agent" \
             --tag ghcr.io/$REPO_LOWER:${nextRelease.version} \
@@ -73,7 +74,7 @@ plugins:
         else
           docker buildx build --platform linux/amd64,linux/arm64 \
             --label "org.opencontainers.image.source=https://github.com/$REPO_LOWER" \
-            --label "org.opencontainers.image.description=Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources" \
+            --label "org.opencontainers.image.description=$DESCRIPTION" \
             --label "org.opencontainers.image.version=${nextRelease.version}" \
             --label "org.opencontainers.image.title=documentation-agent" \
             --tag ghcr.io/$REPO_LOWER:${nextRelease.version} \
