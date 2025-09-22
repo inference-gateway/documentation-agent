@@ -1,7 +1,7 @@
 {
 	"name": "documentation-agent",
 	"version": "0.2.18",
-	"description": "Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources",
+	"description": "A2A agent server that provides Context7-style documentation capabilities for your agents",
 	"protocolVersion": "0.3.0",
 	"url": "http://localhost:8080",
 	"preferredTransport": "JSONRPC",

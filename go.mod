@@ -1,6 +1,6 @@
 module github.com/inference-gateway/documentation-agent
 
-go 1.24.5
+go 1.25.0
 
 require (
 	github.com/go-resty/resty/v2 v2.16.3

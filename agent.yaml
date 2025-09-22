@@ -2,8 +2,8 @@ apiVersion: adl.dev/v1
 kind: Agent
 metadata:
   name: documentation-agent
-  description: "Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources"
-  version: "0.2.18"
+  description: A2A agent server that provides Context7-style documentation capabilities for your agents
+  version: 0.2.18
 spec:
   capabilities:
     streaming: true
@@ -70,7 +70,7 @@ spec:
   language:
     go:
       module: "github.com/inference-gateway/documentation-agent"
-      version: "1.24.5"
+      version: "1.25.0"
   scm:
     provider: github
     url: "https://github.com/inference-gateway/documentation-agent"

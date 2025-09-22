@@ -6,7 +6,7 @@ This file describes the agents available in this A2A (Agent-to-Agent) system.
 
 ### documentation-agent
 **Version**: 0.2.18  
-**Description**: Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources
+**Description**: A2A agent server that provides Context7-style documentation capabilities for your agents
 
 This agent is built using the Agent Definition Language (ADL) and provides A2A communication capabilities.
 

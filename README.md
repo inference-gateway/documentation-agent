@@ -2,11 +2,11 @@
 
 # Documentation-Agent
 [![CI](https://github.com/inference-gateway/documentation-agent/workflows/CI/badge.svg)](https://github.com/inference-gateway/documentation-agent/actions/workflows/ci.yml)
-[![Go Version](https://img.shields.io/badge/Go-1.24.5+-00ADD8?style=flat&logo=go)](https://golang.org)
+[![Go Version](https://img.shields.io/badge/Go-1.25.0+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![A2A Protocol](https://img.shields.io/badge/A2A-Protocol-blue?style=flat)](https://github.com/inference-gateway/adk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-**Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources**
+**A2A agent server that provides Context7-style documentation capabilities for your agents**
 
 A production-ready [Agent-to-Agent (A2A)](https://github.com/inference-gateway/adk) server that provides AI-powered capabilities through a standardized protocol.
 
@@ -137,7 +137,7 @@ docker build \
 **Available Build Arguments:**
 - `VERSION` - Agent version (default: `0.2.18`)
 - `AGENT_NAME` - Agent name (default: `documentation-agent`)
-- `AGENT_DESCRIPTION` - Agent description (default: `Intelligent documentation retrieval agent that resolves library names and fetches targeted documentation from Context7-compatible sources`)
+- `AGENT_DESCRIPTION` - Agent description (default: `A2A agent server that provides Context7-style documentation capabilities for your agents`)
 
 These values are embedded into the binary at build time using linker flags, making them accessible at runtime without requiring environment variables.
 
