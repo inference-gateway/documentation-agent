@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.19](https://github.com/inference-gateway/documentation-agent/compare/v0.2.18...v0.2.19) (2025-09-22)
+
+### ♻️ Improvements
+
+* Update Go version to 1.25.0 and ADL CLI version to 0.21.4; revise documentation and descriptions ([aa7c55b](https://github.com/inference-gateway/documentation-agent/commit/aa7c55bb806ad2d2ba5118bc878ded658d17baf7))
+
+### 👷 CI
+
+* Add validation task for ADL in Taskfile and CI workflow ([15e883e](https://github.com/inference-gateway/documentation-agent/commit/15e883ec519b5027632d44fc87ec1d932e421df5))
+* Install ADL CLI in CI workflow ([93cb982](https://github.com/inference-gateway/documentation-agent/commit/93cb98263f9b40f2106e2c585a7d77a879825d9b))
+
 ## [0.2.18](https://github.com/inference-gateway/documentation-agent/compare/v0.2.17...v0.2.18) (2025-09-18)
 
 ### ♻️ Improvements

@@ -135,7 +135,7 @@ docker build \
 ```
 
 **Available Build Arguments:**
-- `VERSION` - Agent version (default: `0.2.18`)
+- `VERSION` - Agent version (default: `0.2.19`)
 - `AGENT_NAME` - Agent name (default: `documentation-agent`)
 - `AGENT_DESCRIPTION` - Agent description (default: `A2A agent server that provides Context7-style documentation capabilities for your agents`)
 
