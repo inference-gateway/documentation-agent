@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.20](https://github.com/inference-gateway/documentation-agent/compare/v0.2.19...v0.2.20) (2025-09-26)
+
+### ♻️ Improvements
+
+* Update ADL CLI version to 0.21.6 and modify agent metadata file references ([#8](https://github.com/inference-gateway/documentation-agent/issues/8)) ([4aa1273](https://github.com/inference-gateway/documentation-agent/commit/4aa12736e83985bcf12c913f2392fe6c5c8bb7da))
+
 ## [0.2.19](https://github.com/inference-gateway/documentation-agent/compare/v0.2.18...v0.2.19) (2025-09-22)
 
 ### ♻️ Improvements

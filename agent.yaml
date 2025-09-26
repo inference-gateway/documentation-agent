@@ -3,7 +3,7 @@ kind: Agent
 metadata:
   name: documentation-agent
   description: A2A agent server that provides Context7-style documentation capabilities for your agents
-  version: 0.2.19
+  version: 0.2.20
 spec:
   capabilities:
     streaming: true

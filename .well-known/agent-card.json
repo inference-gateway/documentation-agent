@@ -1,6 +1,6 @@
 {
 	"name": "documentation-agent",
-	"version": "0.2.19",
+	"version": "0.2.20",
 	"description": "A2A agent server that provides Context7-style documentation capabilities for your agents",
 	"protocolVersion": "0.3.0",
 	"url": "http://localhost:8080",
