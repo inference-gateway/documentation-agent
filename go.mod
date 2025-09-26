@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/go-resty/resty/v2 v2.16.3
-	github.com/inference-gateway/adk v0.11.0
+	github.com/inference-gateway/adk v0.11.1
 	github.com/sethvargo/go-envconfig v1.3.0
 	go.uber.org/zap v1.27.0
 )
