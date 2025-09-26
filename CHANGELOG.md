@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.21](https://github.com/inference-gateway/documentation-agent/compare/v0.2.20...v0.2.21) (2025-09-26)
+
+### ♻️ Improvements
+
+* Bump ADK to 0.11.1 ([f76464f](https://github.com/inference-gateway/documentation-agent/commit/f76464f60137199686154db495d16b1f7e3ea85a))
+
 ## [0.2.20](https://github.com/inference-gateway/documentation-agent/compare/v0.2.19...v0.2.20) (2025-09-26)
 
 ### ♻️ Improvements
