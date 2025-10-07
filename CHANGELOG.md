@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.22](https://github.com/inference-gateway/documentation-agent/compare/v0.2.21...v0.2.22) (2025-10-07)
+
+### 🔧 Miscellaneous
+
+* **deps:** Update dependencies and regenerate ADL files ([5e038db](https://github.com/inference-gateway/documentation-agent/commit/5e038db2138f2b89b4545327df5ffe05ae531939))
+
 ## [0.2.21](https://github.com/inference-gateway/documentation-agent/compare/v0.2.20...v0.2.21) (2025-09-26)
 
 ### ♻️ Improvements
