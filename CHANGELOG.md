@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.24](https://github.com/inference-gateway/documentation-agent/compare/v0.2.23...v0.2.24) (2025-10-20)
+
+### 🔧 Miscellaneous
+
+* **deps:** Update dependencies and generated files ([48d8ec1](https://github.com/inference-gateway/documentation-agent/commit/48d8ec1cff2b81d021ab705cc90463e6c18933c2))
+
 ## [0.2.23](https://github.com/inference-gateway/documentation-agent/compare/v0.2.22...v0.2.23) (2025-10-14)
 
 ### 🔧 Miscellaneous
