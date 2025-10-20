@@ -8,7 +8,7 @@
 
 **A2A agent server that provides Context7-style documentation capabilities for your agents**
 
-A production-ready [Agent-to-Agent (A2A)](https://github.com/inference-gateway/adk) server that provides AI-powered capabilities through a standardized protocol.
+A enterprise-ready [Agent-to-Agent (A2A)](https://github.com/inference-gateway/adk) server that provides AI-powered capabilities through a standardized protocol.
 
 </div>
 
