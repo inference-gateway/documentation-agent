@@ -1,8 +1,9 @@
 <div align="center">
 
 # Documentation-Agent
+
 [![CI](https://github.com/inference-gateway/documentation-agent/workflows/CI/badge.svg)](https://github.com/inference-gateway/documentation-agent/actions/workflows/ci.yml)
-[![Go Version](https://img.shields.io/badge/Go-1.25.0+-00ADD8?style=flat&logo=go)](https://golang.org)
+[![Go Version](https://img.shields.io/badge/Go-1.25.5+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![A2A Protocol](https://img.shields.io/badge/A2A-Protocol-blue?style=flat)](https://github.com/inference-gateway/adk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -23,13 +24,23 @@ docker build -t documentation-agent .
 docker run -p 8080:8080 documentation-agent
 ```
 
+## Quick Install
+
+Add this agent to your Inference Gateway CLI:
+
+```bash
+infer agents add documentation-agent http://localhost:8080 \
+  --oci ghcr.io/inference-gateway/documentation-agent:latest \
+  --run
+```
+
 ## Features
 
 - ✅ A2A protocol compliant
 - ✅ AI-powered capabilities
 - ✅ Streaming support
 - ✅ State transition history
-- ✅ Production ready
+- ✅ Enterprise-ready
 - ✅ Minimal dependencies
 
 ## Endpoints
@@ -42,8 +53,8 @@ docker run -p 8080:8080 documentation-agent
 
 | Skill | Description | Parameters |
 |-------|-------------|------------|
-| `resolve_library_id` | Resolves library name to Context7-compatible library ID and returns matching libraries |libraryName |
-| `get_library_docs` | Fetches up-to-date documentation for a library using Context7-compatible library ID |context7CompatibleLibraryID, tokens, topic |
+| `resolve_library_id` | Resolves library name to Context7-compatible library ID and returns matching libraries | libraryName |
+| `get_library_docs` | Fetches up-to-date documentation for a library using Context7-compatible library ID | context7CompatibleLibraryID, tokens, topic |
 
 ## Configuration
 
@@ -135,6 +146,7 @@ docker build \
 ```
 
 **Available Build Arguments:**
+
 - `VERSION` - Agent version (default: `0.2.24`)
 - `AGENT_NAME` - Agent name (default: `documentation-agent`)
 - `AGENT_DESCRIPTION` - Agent description (default: `A2A agent server that provides Context7-style documentation capabilities for your agents`)
