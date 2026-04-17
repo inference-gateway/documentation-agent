@@ -5,7 +5,7 @@ This file describes the agents available in this A2A (Agent-to-Agent) system.
 ## Agent Overview
 
 ### documentation-agent
-**Version**: 0.2.24  
+**Version**: 0.2.25  
 **Description**: A2A agent server that provides Context7-style documentation capabilities for your agents
 
 This agent is built using the Agent Definition Language (ADL) and provides A2A communication capabilities.
@@ -143,7 +143,7 @@ task test:coverage
 
 ## Agent Metadata
 
-This agent was generated using ADL CLI v0.2.24 with the following configuration:
+This agent was generated using ADL CLI v0.2.25 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.25](https://github.com/inference-gateway/documentation-agent/compare/v0.2.24...v0.2.25) (2026-04-17)
+
+### 🔧 Miscellaneous
+
+* **ci:** Update Claude Code workflow to use main action ([cc52d9d](https://github.com/inference-gateway/documentation-agent/commit/cc52d9db5895dc513a5f4ac4e03efd35612a8ec3))
+* **deps:** Bump ADL CLI and re-generate ([8beb0fa](https://github.com/inference-gateway/documentation-agent/commit/8beb0fa0ac2ecbeaf7c06180c90dc7cad487f4fc))
+* **deps:** Bump to latest version ([39e5b7c](https://github.com/inference-gateway/documentation-agent/commit/39e5b7ce9c1f667b64ca4a182fb901c15db6fcbc))
+
 ## [0.2.24](https://github.com/inference-gateway/documentation-agent/compare/v0.2.23...v0.2.24) (2025-10-20)
 
 ### 🔧 Miscellaneous
