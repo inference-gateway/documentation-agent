@@ -1,10 +1,10 @@
 module github.com/inference-gateway/documentation-agent
 
-go 1.25.5
+go 1.26.1
 
 require (
 	github.com/go-resty/resty/v2 v2.16.3
-	github.com/inference-gateway/adk v0.17.0
+	github.com/inference-gateway/adk v0.17.1
 	github.com/sethvargo/go-envconfig v1.3.0
 	go.uber.org/zap v1.27.1
 )
