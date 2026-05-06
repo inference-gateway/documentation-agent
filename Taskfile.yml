@@ -6,7 +6,7 @@ version: '3'
 
 vars:
   APP_NAME: documentation-agent
-  VERSION: 0.2.25
+  VERSION: 0.2.26
 
 tasks:
   validate:

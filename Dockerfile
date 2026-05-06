@@ -2,10 +2,10 @@
 # This file was automatically generated from an ADL (Agent Definition Language) specification.
 # Manual changes to this file may be overwritten during regeneration.
 
-FROM golang:1.26.2-alpine AS builder
+FROM golang:1.26.1-alpine AS builder
 
 # Build arguments for version injection
-ARG VERSION="0.2.25"
+ARG VERSION="0.2.26"
 ARG AGENT_NAME="documentation-agent"
 ARG AGENT_DESCRIPTION="A2A agent server that provides Context7-style documentation capabilities for your agents"
 

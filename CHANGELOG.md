@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.26](https://github.com/inference-gateway/documentation-agent/compare/v0.2.25...v0.2.26) (2026-05-06)
+
+### ♻️ Improvements
+
+* Rename all instances of deepseek-chat to deepseek-v4-flash ([a4c8678](https://github.com/inference-gateway/documentation-agent/commit/a4c8678aebbd34cc0bba3a5033e1d160beb719ae))
+
+### 🔧 Miscellaneous
+
+* **deps:** Bump go version to latest ([67ba471](https://github.com/inference-gateway/documentation-agent/commit/67ba471bd9d65e8a88c9c3305aa87124ae888395))
+
 ## [0.2.25](https://github.com/inference-gateway/documentation-agent/compare/v0.2.24...v0.2.25) (2026-04-17)
 
 ### 🔧 Miscellaneous
