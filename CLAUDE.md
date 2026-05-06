@@ -99,7 +99,7 @@ When implementing tests:
 
 ## Environment Management
 The project includes Flox environment configuration (`.flox/env/manifest.toml`) providing:
-- Go 1.25.5
+- Go 1.26.2
 - golangci-lint (linter)
 - go-task (Task runner)
 - Docker
