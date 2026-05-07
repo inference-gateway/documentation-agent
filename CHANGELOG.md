@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.27](https://github.com/inference-gateway/documentation-agent/compare/v0.2.26...v0.2.27) (2026-05-07)
+
+### ♻️ Improvements
+
+* Update task installation method in CI and CD workflows ([c7fc1cb](https://github.com/inference-gateway/documentation-agent/commit/c7fc1cb514622a339b7a05ed406fafc808445766))
+
+### 👷 CI
+
+* **deps:** Bump golangci-lint to latest ([95bbcfc](https://github.com/inference-gateway/documentation-agent/commit/95bbcfc2a40358b08c24d810ac56e7b71bdcba7e))
+* Update golangci-lint installation script and version ([fb0fb5c](https://github.com/inference-gateway/documentation-agent/commit/fb0fb5c5425226f0085471a33928f28503e1a50c))
+
 ## [0.2.26](https://github.com/inference-gateway/documentation-agent/compare/v0.2.25...v0.2.26) (2026-05-06)
 
 ### ♻️ Improvements
