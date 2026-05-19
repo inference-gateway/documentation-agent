@@ -54,8 +54,8 @@ infer agents add documentation-agent http://localhost:8080 \
 | Tool | Description | Parameters |
 |------|-------------|------------|
 | `Read` | Read a file from disk. Returns its contents, optionally sliced by line offset/limit. Use this to load SKILL.md bodies on demand. | file_path, offset, limit |
-| `resolve_library_id` | Resolves library name to Context7-compatible library ID and returns matching libraries | libraryName |
-| `get_library_docs` | Fetches up-to-date documentation for a library using Context7-compatible library ID | context7CompatibleLibraryID, tokens, topic |
+| `resolve_library_id` | Resolves library name to Context7-compatible library ID and returns matching libraries | libraryName, query |
+| `get_library_docs` | Fetches up-to-date documentation for a library using Context7-compatible library ID | libraryId, query |
 
 ## Skills (loaded into the system prompt)
 
