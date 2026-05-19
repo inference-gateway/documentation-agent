@@ -28,7 +28,7 @@ import (
 )
 
 var (
-	Version          = "0.2.27"
+	Version          = "0.2.28"
 	AgentName        = "documentation-agent"
 	AgentDescription = "A2A agent server that provides Context7-style documentation capabilities for your agents"
 )

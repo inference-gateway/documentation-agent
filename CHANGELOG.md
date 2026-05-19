@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.28](https://github.com/inference-gateway/documentation-agent/compare/v0.2.27...v0.2.28) (2026-05-19)
+
+### ♻️ Improvements
+
+* Migrate to ADL CLI v0.30.4 ([ef45c8e](https://github.com/inference-gateway/documentation-agent/commit/ef45c8e0c5495f658ac870d69b64b6e86dd2151d))
+
+### 👷 CI
+
+* **dependabot:** Add dependabot to help with dependecies upgrades ([dda4c55](https://github.com/inference-gateway/documentation-agent/commit/dda4c5556e7096c95a09d82aa936638e3f981935))
+* Enable display report for Claude Code action ([c3a59e1](https://github.com/inference-gateway/documentation-agent/commit/c3a59e1a73b0356b1cfb2ba348603c31028951c2))
+* Update create-github-app-token action to v3.2.0 ([54980db](https://github.com/inference-gateway/documentation-agent/commit/54980dbd04faa4199c48dc0f1f4b0593ab35fb0b))
+
+### 🔧 Miscellaneous
+
+* Add CODEOWNERS file for repository ownership ([cc36070](https://github.com/inference-gateway/documentation-agent/commit/cc360701bd4bbc1af6bfd0195bfbadee8a46df7b))
+* **deps:** Bump ADL CLI to version 0.30.5 ([9513a87](https://github.com/inference-gateway/documentation-agent/commit/9513a87b2d386a2e129b43ea37d85c34ac505e49))
+* Remove outdated issue templates for bug reports, feature requests, and refactor requests ([ee6029f](https://github.com/inference-gateway/documentation-agent/commit/ee6029f971286d47ec32fb114d5ab0d4e4ddf2de))
+
+### 🔨 Miscellaneous
+
+* **deps:** Bump the gomod group across 1 directory with 3 updates ([#10](https://github.com/inference-gateway/documentation-agent/issues/10)) ([bfe7a58](https://github.com/inference-gateway/documentation-agent/commit/bfe7a5828aab74f27eacdcec9850f5bf181fd8d3))
+
 ## [0.2.27](https://github.com/inference-gateway/documentation-agent/compare/v0.2.26...v0.2.27) (2026-05-07)
 
 ### ♻️ Improvements
