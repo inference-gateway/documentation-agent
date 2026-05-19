@@ -15,18 +15,10 @@
 	},
 	"skills": [
 		{
-			"id": "resolve_library_id",
-			"name": "resolve_library_id",
-			"description": "Resolves library name to Context7-compatible library ID and returns matching libraries",
-			"tags": ["docs","libraries"],
-			"schema": {"properties":{"libraryName":{"description":"Library name to search for and retrieve a Context7-compatible library ID","type":"string"}},"required":["libraryName"],"type":"object"}
-		},
-		{
-			"id": "get_library_docs",
-			"name": "get_library_docs",
-			"description": "Fetches up-to-date documentation for a library using Context7-compatible library ID",
-			"tags": ["docs","libraries"],
-			"schema": {"properties":{"context7CompatibleLibraryID":{"description":"Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase') retrieved from resolve_library_id or directly from user query in the format '/org/project' or '/org/project/version'","type":"string"},"tokens":{"description":"Maximum number of tokens of documentation to retrieve (default: 10000). Higher values provide more context but consume more tokens","type":"number"},"topic":{"description":"Topic to focus documentation on (e.g., 'hooks', 'routing')","type":"string"}},"required":["context7CompatibleLibraryID"],"type":"object"}
+			"id": "library-documentation-lookup",
+			"name": "library-documentation-lookup",
+			"description": "Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior.",
+			"tags": ["docs","libraries","context7","documentation","reference"]
 		}
 	]
 }

@@ -24,9 +24,13 @@ This agent is built using the Agent Definition Language (ADL) and provides A2A c
 - Max Tokens: 4096
 - Temperature: 0.7
 
-## Skills
+## Tools
 
-This agent provides 2 skills:
+This agent exposes 3 function-call tools:
+
+### Read (built-in)
+- **Description**: Read a file from disk. Returns its contents, optionally sliced by line offset/limit. Use this to load SKILL.md bodies on demand.
+- **Parameters**: file_path, offset, limit
 
 ### resolve_library_id
 - **Description**: Resolves library name to Context7-compatible library ID and returns matching libraries
@@ -39,6 +43,15 @@ This agent provides 2 skills:
 - **Tags**: docs, libraries
 - **Input Schema**: Defined in agent configuration
 - **Output Schema**: Defined in agent configuration
+
+## Skills
+
+This agent ships 1 markdown skill that are loaded into the system prompt at startup:
+
+### library-documentation-lookup
+- **Description**: Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior.
+- **Tags**: docs, libraries, context7, documentation, reference
+- **Source**: scaffolded locally (`skills/library-documentation-lookup/SKILL.md`)
 
 ## Server Configuration
 
@@ -113,9 +126,13 @@ docker run -p 8080:8080 documentation-agent
 ```
 .
 ├── main.go                       # Server entry point
-├── skills/                       # Business logic skills
+├── tools/                        # Function-call tools
+│   └── read.go                   # Read a file from disk. Returns its contents, optionally sliced by line offset/limit. Use this to load SKILL.md bodies on demand.
 │   └── resolve_library_id.go     # Resolves library name to Context7-compatible library ID and returns matching libraries
 │   └── get_library_docs.go       # Fetches up-to-date documentation for a library using Context7-compatible library ID
+├── skills/                       # Skill directories (SKILL.md + optional assets)
+│   └── library-documentation-lookup/# Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior.
+│       └── SKILL.md              # Playbook prepended to the system prompt
 ├── .well-known/                  # Agent configuration
 │   └── agent-card.json           # Agent metadata
 ├── go.mod                        # Go module definition
@@ -147,7 +164,7 @@ This agent was generated using ADL CLI v0.2.27 with the following configuration:
 
 - **Language**: Go
 - **Template**: Minimal A2A Agent
-- **ADL Version**: adl.dev/v1
+- **ADL Version**: adl.inference-gateway.com/v1
 
 ---
 

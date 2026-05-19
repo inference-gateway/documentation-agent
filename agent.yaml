@@ -1,4 +1,4 @@
-apiVersion: adl.dev/v1
+apiVersion: adl.inference-gateway.com/v1
 kind: Agent
 metadata:
   name: documentation-agent
@@ -25,45 +25,63 @@ spec:
       You are an intelligent documentation retrieval assistant that specializes in finding and fetching relevant documentation from Context7-compatible sources. You can resolve library names to their proper identifiers and retrieve targeted documentation based on specific topics or requirements.
     maxTokens: 4096
     temperature: 0.7
-  skills:
+  config:
+    tools:
+      read:
+        enabled: true
+  tools:
+    - id: read
     - id: resolve_library_id
       name: resolve_library_id
       description: "Resolves library name to Context7-compatible library ID and returns matching libraries"
       tags:
         - docs
         - libraries
+      inject:
+        - logger
       schema:
         type: object
         properties:
           libraryName:
             type: string
-            description: "Library name to search for and retrieve a Context7-compatible library ID"
+            description: "Official library name with proper punctuation (e.g., 'Next.js', 'Three.js', 'Customer.io'). Used by Context7 to rank candidate libraries."
+          query:
+            type: string
+            description: "The question or task the caller is trying to accomplish. Used by Context7 to rank library results by relevance. Do not include secrets."
         required:
           - libraryName
-      inject:
-        - logger
+          - query
     - id: get_library_docs
       name: get_library_docs
       description: "Fetches up-to-date documentation for a library using Context7-compatible library ID"
       tags:
         - docs
         - libraries
+      inject:
+        - logger
       schema:
         type: object
         properties:
-          context7CompatibleLibraryID:
+          libraryId:
             type: string
-            description: "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase') retrieved from resolve_library_id or directly from user query in the format '/org/project' or '/org/project/version'"
-          tokens:
-            type: number
-            description: "Maximum number of tokens of documentation to retrieve (default: 10000). Higher values provide more context but consume more tokens"
-          topic:
+            description: "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase', '/vercel/next.js/v14.3.0-canary.87') retrieved from resolve_library_id or supplied by the caller in the format '/org/project' or '/org/project/version'."
+          query:
             type: string
-            description: "Topic to focus documentation on (e.g., 'hooks', 'routing')"
+            description: "Specific question or task to answer from the documentation. Be specific — 'How to set up JWT auth in Express.js' or 'React useEffect cleanup examples', not 'auth' or 'hooks'. Do not include secrets."
         required:
-          - context7CompatibleLibraryID
-      inject:
-        - logger
+          - libraryId
+          - query
+  skills:
+    - id: library-documentation-lookup
+      bare: true
+      name: library-documentation-lookup
+      description: "Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior."
+      tags:
+        - docs
+        - libraries
+        - context7
+        - documentation
+        - reference
   server:
     port: 8080
     debug: false
@@ -75,7 +93,7 @@ spec:
     provider: github
     url: "https://github.com/inference-gateway/documentation-agent"
     github_app: true
-    issue_templates: true
+    issue_templates: false
   sandbox:
     flox:
       enabled: true

@@ -13,5 +13,6 @@
 # my-custom-file.go
 # config/secrets.yaml
 
-skills/get_library_docs.go
-skills/resolve_library_id.go
+tools/get_library_docs.go
+tools/resolve_library_id.go
+skills/
