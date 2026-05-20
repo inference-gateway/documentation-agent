@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.29](https://github.com/inference-gateway/documentation-agent/compare/v0.2.28...v0.2.29) (2026-05-20)
+
+### 👷 CI
+
+* **deps:** Update installation steps for golangci-lint and task in CI/CD workflows ([e80b929](https://github.com/inference-gateway/documentation-agent/commit/e80b92988a662386915944f5f722f1a6229b3b97))
+
+### 🔧 Miscellaneous
+
+* **deps:** Bump ADL CLI to version 0.30.10 ([8fc95e3](https://github.com/inference-gateway/documentation-agent/commit/8fc95e3fee045022655eed32e6fcc51bedb9a387))
+* **deps:** Bump ADL CLI to version 0.30.9 ([4f0b0d2](https://github.com/inference-gateway/documentation-agent/commit/4f0b0d2fce6357d2c92fd50c2bcf32c8bdd3df11))
+* Run task generate ([464d86d](https://github.com/inference-gateway/documentation-agent/commit/464d86da923391a4bacf88845e194816a1e7dc68))
+
 ## [0.2.28](https://github.com/inference-gateway/documentation-agent/compare/v0.2.27...v0.2.28) (2026-05-19)
 
 ### ♻️ Improvements
