@@ -85,6 +85,7 @@ spec:
   server:
     port: 8080
     debug: false
+    scheme: http
   language:
     go:
       module: "github.com/inference-gateway/documentation-agent"
@@ -94,6 +95,16 @@ spec:
     url: "https://github.com/inference-gateway/documentation-agent"
     github_app: true
     issue_templates: false
-  sandbox:
-    flox:
-      enabled: true
+    dependabot: false
+    ci: false
+    cd: false
+  development:
+    sandbox:
+      flox:
+        enabled: true
+      devcontainer:
+        enabled: false
+      dockerCompose:
+        enabled: false
+    ai:
+      enabled: false
