@@ -55,7 +55,7 @@ jobs:
 
       - name: Install Agent Definition Language (ADL) CLI
         run: |
-          curl -fsSL https://raw.githubusercontent.com/inference-gateway/adl-cli/v0.30.10/install.sh | bash
+          curl -fsSL https://raw.githubusercontent.com/inference-gateway/adl-cli/v0.31.0/install.sh | bash
 
       - name: Run Claude Code
         id: claude
