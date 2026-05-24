@@ -67,7 +67,7 @@ spec:
             description: "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase', '/vercel/next.js/v14.3.0-canary.87') retrieved from resolve_library_id or supplied by the caller in the format '/org/project' or '/org/project/version'."
           query:
             type: string
-            description: "Specific question or task to answer from the documentation. Be specific — 'How to set up JWT auth in Express.js' or 'React useEffect cleanup examples', not 'auth' or 'hooks'. Do not include secrets."
+            description: "Specific question or task to answer from the documentation. Be specific - 'How to set up JWT auth in Express.js' or 'React useEffect cleanup examples', not 'auth' or 'hooks'. Do not include secrets."
         required:
           - libraryId
           - query
