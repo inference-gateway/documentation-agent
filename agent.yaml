@@ -90,6 +90,9 @@ spec:
     go:
       module: "github.com/inference-gateway/documentation-agent"
       version: "1.26.2"
+      vendor:
+        deps: []
+        devdeps: []
   scm:
     provider: github
     url: "https://github.com/inference-gateway/documentation-agent"
@@ -117,3 +120,4 @@ spec:
         enabled: false
       opencode:
         enabled: false
+    deps: []
