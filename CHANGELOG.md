@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.30](https://github.com/inference-gateway/documentation-agent/compare/v0.2.29...v0.2.30) (2026-05-24)
+
+### ♻️ Improvements
+
+* **Taskfile:** Remove flags from generate command ([8d529b1](https://github.com/inference-gateway/documentation-agent/commit/8d529b1e6e7e3daac3218b5679cef917f8a828af))
+
+### 👷 CI
+
+* **claude:** Simplify conditions for triggering Claude Code actions ([af1f764](https://github.com/inference-gateway/documentation-agent/commit/af1f76457b6120e120f67f3fb382f7665bf3d7ce))
+* **deps:** Update claude-code-action to version 1.0.130 ([11d6de3](https://github.com/inference-gateway/documentation-agent/commit/11d6de31a9dbb5fcc21210eff790f3cad890af08))
+
+### 🔧 Miscellaneous
+
+* **adl:** Refresh agent.yaml defaults from ADL CLI v0.33.1 ([#15](https://github.com/inference-gateway/documentation-agent/issues/15)) ([f85bbf8](https://github.com/inference-gateway/documentation-agent/commit/f85bbf8bf727faaf841961293d6804e8aa5defaf))
+* **adl:** Refresh agent.yaml defaults from ADL CLI v0.36.0 ([#24](https://github.com/inference-gateway/documentation-agent/issues/24)) ([13d64cf](https://github.com/inference-gateway/documentation-agent/commit/13d64cfbbb36115059ce3eaf1f9de5707ab3cdb0))
+* **adl:** Refresh agent.yaml defaults from ADL CLI v0.38.1 ([#31](https://github.com/inference-gateway/documentation-agent/issues/31)) ([b6d49c9](https://github.com/inference-gateway/documentation-agent/commit/b6d49c9a3253f7bba712ed1a68d9d8accf3aa27f))
+* **dependabot:** Update golang and ubuntu version ignore rules in dependabot configuration ([6dbdf2b](https://github.com/inference-gateway/documentation-agent/commit/6dbdf2bd45ea375553295d0f290a0378dc497778))
+* **deps:** Add ignore rule for golang dependency in dependabot configuration ([9376206](https://github.com/inference-gateway/documentation-agent/commit/937620675ce353bcf0112f557c446031c59ee02a))
+* **deps:** Bump ADL CLI v0.30.10 -> v0.31.0 ([#14](https://github.com/inference-gateway/documentation-agent/issues/14)) ([50fae6e](https://github.com/inference-gateway/documentation-agent/commit/50fae6eb5fe8cd2cd63be12aa9e3db6228e0c16e))
+* **deps:** Bump ADL CLI v0.31.0 -> v0.34.0 ([#17](https://github.com/inference-gateway/documentation-agent/issues/17)) ([941554f](https://github.com/inference-gateway/documentation-agent/commit/941554ffb045dff4e0b4da5a667eea3f5a8a3b8c))
+* **deps:** Bump ADL CLI v0.34.0 -> v0.34.1 ([#21](https://github.com/inference-gateway/documentation-agent/issues/21)) ([f0a5816](https://github.com/inference-gateway/documentation-agent/commit/f0a581697bbbaebf997371ccd54b6dffb852359a))
+* **deps:** Bump ADL CLI v0.34.1 -> v0.34.2 ([#23](https://github.com/inference-gateway/documentation-agent/issues/23)) ([cc43370](https://github.com/inference-gateway/documentation-agent/commit/cc433707e740fdc912ba8ed8a087361825599610))
+* **deps:** Bump ADL CLI v0.34.2 -> v0.36.1 ([#25](https://github.com/inference-gateway/documentation-agent/issues/25)) ([9d57771](https://github.com/inference-gateway/documentation-agent/commit/9d57771531edbf5d06e022cb254afd614fdba6b9))
+* **deps:** Bump ADL CLI v0.36.1 -> v0.36.2 ([#28](https://github.com/inference-gateway/documentation-agent/issues/28)) ([0fddc69](https://github.com/inference-gateway/documentation-agent/commit/0fddc6969cef0d314dae31f3f90726ad783507a0))
+* **deps:** Bump ADL CLI v0.36.2 -> v0.36.4 ([#29](https://github.com/inference-gateway/documentation-agent/issues/29)) ([283fdd2](https://github.com/inference-gateway/documentation-agent/commit/283fdd22277d86b9acf29e01fea781eb415445ce))
+* **deps:** Bump ADL CLI v0.36.4 -> v0.38.1 ([#30](https://github.com/inference-gateway/documentation-agent/issues/30)) ([06601ee](https://github.com/inference-gateway/documentation-agent/commit/06601ee48e7146a804ac2cf669551e4c8ede308c))
+* **deps:** Bump ADL CLI v0.38.1 -> v0.39.0 ([#32](https://github.com/inference-gateway/documentation-agent/issues/32)) ([f7bd4cf](https://github.com/inference-gateway/documentation-agent/commit/f7bd4cf0484425f1a3e463a4174f71ad1645d8dc))
+* **deps:** Bump ADL CLI v0.39.0 -> v0.39.1 ([#33](https://github.com/inference-gateway/documentation-agent/issues/33)) ([08aab26](https://github.com/inference-gateway/documentation-agent/commit/08aab26570b46ccf64a4ac275929ad523e6afed9))
+* **flox:** Add manifests lock file ([759b359](https://github.com/inference-gateway/documentation-agent/commit/759b3593a38232c3dd179be66b478e2b8f4d9743))
+* **license:** Update license to Apache 2.0 ([9903670](https://github.com/inference-gateway/documentation-agent/commit/990367064fa0739f518e8a4607730eb7c3e17a6d))
+
+### 🔨 Miscellaneous
+
+* **deps:** Bump github.com/inference-gateway/adk ([#13](https://github.com/inference-gateway/documentation-agent/issues/13)) ([bc9bb72](https://github.com/inference-gateway/documentation-agent/commit/bc9bb728241aa89525e7b953d8bc78e71211ebdf))
+* **deps:** Bump the github-actions group across 1 directory with 2 updates ([#22](https://github.com/inference-gateway/documentation-agent/issues/22)) ([9fc8428](https://github.com/inference-gateway/documentation-agent/commit/9fc84287fa9f27765eb156d62d0bbfef3f228034))
+
 ## [0.2.29](https://github.com/inference-gateway/documentation-agent/compare/v0.2.28...v0.2.29) (2026-05-20)
 
 ### 👷 CI
