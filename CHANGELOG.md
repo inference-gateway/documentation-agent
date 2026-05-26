@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.32](https://github.com/inference-gateway/documentation-agent/compare/v0.2.31...v0.2.32) (2026-05-26)
+
+### 🔧 Miscellaneous
+
+* **deps:** Bump ADL CLI v0.39.2 -> v0.39.3 ([#35](https://github.com/inference-gateway/documentation-agent/issues/35)) ([65e678b](https://github.com/inference-gateway/documentation-agent/commit/65e678b00a724b72c5d53b7b116b9cb7d5113409))
+* Replace all em dashes with regular dashes ([d7ea856](https://github.com/inference-gateway/documentation-agent/commit/d7ea85686fcb7ece11f89b937c6efe1565d965b6))
+
 ## [0.2.31](https://github.com/inference-gateway/documentation-agent/compare/v0.2.30...v0.2.31) (2026-05-24)
 
 ### 🔧 Miscellaneous
