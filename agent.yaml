@@ -2,7 +2,9 @@ apiVersion: adl.inference-gateway.com/v1
 kind: Agent
 metadata:
   name: documentation-agent
-  description: A2A agent server that provides Context7-style documentation capabilities for your agents
+  description:
+    A2A agent server that provides Context7-style documentation capabilities for
+    your agents
   version: 0.2.32
 spec:
   capabilities:
@@ -33,7 +35,9 @@ spec:
     - id: read
     - id: resolve_library_id
       name: resolve_library_id
-      description: "Resolves library name to Context7-compatible library ID and returns matching libraries"
+      description:
+        "Resolves library name to Context7-compatible library ID and returns
+        matching libraries"
       tags:
         - docs
         - libraries
@@ -44,16 +48,24 @@ spec:
         properties:
           libraryName:
             type: string
-            description: "Official library name with proper punctuation (e.g., 'Next.js', 'Three.js', 'Customer.io'). Used by Context7 to rank candidate libraries."
+            description:
+              "Official library name with proper punctuation (e.g., 'Next.js',
+              'Three.js', 'Customer.io'). Used by Context7 to rank candidate
+              libraries."
           query:
             type: string
-            description: "The question or task the caller is trying to accomplish. Used by Context7 to rank library results by relevance. Do not include secrets."
+            description:
+              "The question or task the caller is trying to accomplish. Used by
+              Context7 to rank library results by relevance. Do not include
+              secrets."
         required:
           - libraryName
           - query
     - id: get_library_docs
       name: get_library_docs
-      description: "Fetches up-to-date documentation for a library using Context7-compatible library ID"
+      description:
+        "Fetches up-to-date documentation for a library using
+        Context7-compatible library ID"
       tags:
         - docs
         - libraries
@@ -64,10 +76,19 @@ spec:
         properties:
           libraryId:
             type: string
-            description: "Exact Context7-compatible library ID (e.g., '/mongodb/docs', '/vercel/next.js', '/supabase/supabase', '/vercel/next.js/v14.3.0-canary.87') retrieved from resolve_library_id or supplied by the caller in the format '/org/project' or '/org/project/version'."
+            description:
+              "Exact Context7-compatible library ID (e.g., '/mongodb/docs',
+              '/vercel/next.js', '/supabase/supabase',
+              '/vercel/next.js/v14.3.0-canary.87') retrieved from
+              resolve_library_id or supplied by the caller in the format
+              '/org/project' or '/org/project/version'."
           query:
             type: string
-            description: "Specific question or task to answer from the documentation. Be specific - 'How to set up JWT auth in Express.js' or 'React useEffect cleanup examples', not 'auth' or 'hooks'. Do not include secrets."
+            description:
+              "Specific question or task to answer from the documentation. Be
+              specific - 'How to set up JWT auth in Express.js' or 'React
+              useEffect cleanup examples', not 'auth' or 'hooks'. Do not include
+              secrets."
         required:
           - libraryId
           - query
@@ -75,7 +96,15 @@ spec:
     - id: library-documentation-lookup
       bare: true
       name: library-documentation-lookup
-      description: "Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior."
+      description:
+        "Use this when you need up-to-date documentation for a third-party
+        library or framework before writing code against it. First resolves the
+        library name to a Context7-compatible ID via resolve_library_id when the
+        caller does not already know it (format '/org/project' or
+        '/org/project/version'), then fetches focused, topic-scoped
+        documentation via get_library_docs. Good for filling in unknowns about
+        specific APIs, hooks, configuration options, or version-specific
+        behavior."
       tags:
         - docs
         - libraries
@@ -97,13 +126,19 @@ spec:
     pages:
       - title: Getting Started
         path: docs/getting-started.md
-        description: Install, configure an LLM provider, run the agent, and send your first documentation query.
+        description:
+          Install, configure an LLM provider, run the agent, and send your first
+          documentation query.
       - title: Configuration
         path: docs/configuration.md
-        description: Environment variables and LLM provider settings specific to this agent.
+        description:
+          Environment variables and LLM provider settings specific to this
+          agent.
       - title: Usage
         path: docs/usage.md
-        description: How the resolve_library_id and get_library_docs tools and the library-documentation-lookup skill work together.
+        description:
+          How the resolve_library_id and get_library_docs tools and the
+          library-documentation-lookup skill work together.
   examples:
     - title: Resolve a library name to a Context7 ID
       description: >-
@@ -117,14 +152,14 @@ spec:
         documentation for that specific topic.
     - title: Look up version-specific API behavior
       description: >-
-        Provide a versioned ID such as '/vercel/next.js/v14.3.0-canary.87' and ask
-        about the App Router; the agent fetches documentation scoped to that exact
-        version.
+        Provide a versioned ID such as '/vercel/next.js/v14.3.0-canary.87' and
+        ask about the App Router; the agent fetches documentation scoped to that
+        exact version.
     - title: End-to-end library documentation lookup
       description: >-
-        Give a bare library name and a question; the library-documentation-lookup
-        skill guides the agent to resolve the ID first, then retrieve the relevant
-        docs in a single flow.
+        Give a bare library name and a question; the
+        library-documentation-lookup skill guides the agent to resolve the ID
+        first, then retrieve the relevant docs in a single flow.
   scm:
     provider: github
     url: "https://github.com/inference-gateway/documentation-agent"
@@ -133,6 +168,8 @@ spec:
     dependabot: true
     ci: true
     cd: true
+    app_id_secret: RELEASER_APP_ID
+    app_private_key_secret: RELEASER_APP_PRIVATE_KEY
   development:
     sandbox:
       flox:
@@ -145,8 +182,12 @@ spec:
       orchestrators:
         claudecode:
           enabled: true
+          appIdSecret: CLAUDE_APP_ID
+          appPrivateKeySecret: CLAUDE_APP_PRIVATE_KEY
         infer:
           enabled: true
+          appIdSecret: INFER_APP_ID
+          appPrivateKeySecret: INFER_APP_PRIVATE_KEY
         codex:
           enabled: false
         gemini:
