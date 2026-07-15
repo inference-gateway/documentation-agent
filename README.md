@@ -75,11 +75,25 @@ infer agents add documentation-agent http://localhost:8080 \
 | `resolve_library_id` | Resolves library name to Context7-compatible library ID and returns matching libraries | libraryName, query |
 | `get_library_docs` | Fetches up-to-date documentation for a library using Context7-compatible library ID | libraryId, query |
 
+## Examples
+
+| Example | Description |
+|---------|-------------|
+| Resolve a library name to a Context7 ID | Ask "What is the Context7 ID for Next.js?" and the agent calls resolve_library_id to return matching libraries with their '/org/project' identifiers. |
+| Fetch topic-scoped documentation for a library | Ask "How do I set up JWT auth in Express.js?" and the agent resolves the library, then calls get_library_docs to return focused, up-to-date documentation for that specific topic. |
+| Look up version-specific API behavior | Provide a versioned ID such as '/vercel/next.js/v14.3.0-canary.87' and ask about the App Router; the agent fetches documentation scoped to that exact version. |
+| End-to-end library documentation lookup | Give a bare library name and a question; the library-documentation-lookup skill guides the agent to resolve the ID first, then retrieve the relevant docs in a single flow. |
+
 ## Skills (loaded into the system prompt)
 
 | Skill | Description | Source |
 |-------|-------------|--------|
 | `library-documentation-lookup` | Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior. | bare scaffold (`skills/library-documentation-lookup.md`) |
+
+## Documentation
+- [Getting Started](docs/getting-started.md)
+- [Configuration](docs/configuration.md)
+- [Usage](docs/usage.md)
 
 ## Configuration
 
