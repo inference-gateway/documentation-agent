@@ -93,6 +93,38 @@ spec:
       vendor:
         deps: []
         devdeps: []
+  documentation:
+    pages:
+      - title: Getting Started
+        path: docs/getting-started.md
+        description: Install, configure an LLM provider, run the agent, and send your first documentation query.
+      - title: Configuration
+        path: docs/configuration.md
+        description: Environment variables and LLM provider settings specific to this agent.
+      - title: Usage
+        path: docs/usage.md
+        description: How the resolve_library_id and get_library_docs tools and the library-documentation-lookup skill work together.
+  examples:
+    - title: Resolve a library name to a Context7 ID
+      description: >-
+        Ask "What is the Context7 ID for Next.js?" and the agent calls
+        resolve_library_id to return matching libraries with their
+        '/org/project' identifiers.
+    - title: Fetch topic-scoped documentation for a library
+      description: >-
+        Ask "How do I set up JWT auth in Express.js?" and the agent resolves the
+        library, then calls get_library_docs to return focused, up-to-date
+        documentation for that specific topic.
+    - title: Look up version-specific API behavior
+      description: >-
+        Provide a versioned ID such as '/vercel/next.js/v14.3.0-canary.87' and ask
+        about the App Router; the agent fetches documentation scoped to that exact
+        version.
+    - title: End-to-end library documentation lookup
+      description: >-
+        Give a bare library name and a question; the library-documentation-lookup
+        skill guides the agent to resolve the ID first, then retrieve the relevant
+        docs in a single flow.
   scm:
     provider: github
     url: "https://github.com/inference-gateway/documentation-agent"
