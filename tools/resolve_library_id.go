@@ -67,6 +67,9 @@ type context7SearchResult struct {
 
 // ResolveLibraryIDHandler handles the resolve_library_id tool execution
 func (t *ResolveLibraryIDTool) ResolveLibraryIDHandler(ctx context.Context, args map[string]any) (string, error) {
+	span := startToolSpan(ctx, "resolve_library_id")
+	defer span.End()
+
 	t.logger.Debug("resolve_library_id handler called", zap.Any("args", args))
 
 	libraryName, ok := args["libraryName"].(string)

@@ -27,6 +27,13 @@ spec:
       You are an intelligent documentation retrieval assistant that specializes in finding and fetching relevant documentation from Context7-compatible sources. You can resolve library names to their proper identifiers and retrieve targeted documentation based on specific topics or requirements.
     maxTokens: 4096
     temperature: 0.7
+  telemetry:
+    enabled: true
+    metrics:
+      exporter:
+        prometheus:
+          host: ""
+          port: 9464
   config:
     tools:
       read:

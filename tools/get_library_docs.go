@@ -44,6 +44,9 @@ func NewGetLibraryDocsTool(logger *zap.Logger) server.Tool {
 
 // GetLibraryDocsHandler handles the get_library_docs tool execution
 func (t *GetLibraryDocsTool) GetLibraryDocsHandler(ctx context.Context, args map[string]any) (string, error) {
+	span := startToolSpan(ctx, "get_library_docs")
+	defer span.End()
+
 	t.logger.Debug("get_library_docs handler called", zap.Any("args", args))
 
 	libraryID, ok := args["libraryId"].(string)

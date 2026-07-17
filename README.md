@@ -56,6 +56,7 @@ infer agents add documentation-agent http://localhost:8080 \
 - ✅ AI-powered capabilities
 - ✅ Streaming support
 - ✅ State transition history
+- ✅ OpenTelemetry instrumentation
 - ✅ Enterprise-ready
 - ✅ Minimal dependencies
 
