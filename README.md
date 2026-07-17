@@ -25,8 +25,6 @@ go run . start
 
 # Or build and invoke the CLI directly
 task build
-./bin/documentation-agent --help
-./bin/documentation-agent --version
 ./bin/documentation-agent start
 
 # Or with Docker
@@ -79,10 +77,10 @@ infer agents add documentation-agent http://localhost:8080 \
 
 | Example | Description |
 |---------|-------------|
-| Resolve a library name to a Context7 ID | Ask "What is the Context7 ID for Next.js?" and the agent calls resolve_library_id to return matching libraries with their '/org/project' identifiers. |
-| Fetch topic-scoped documentation for a library | Ask "How do I set up JWT auth in Express.js?" and the agent resolves the library, then calls get_library_docs to return focused, up-to-date documentation for that specific topic. |
-| Look up version-specific API behavior | Provide a versioned ID such as '/vercel/next.js/v14.3.0-canary.87' and ask about the App Router; the agent fetches documentation scoped to that exact version. |
-| End-to-end library documentation lookup | Give a bare library name and a question; the library-documentation-lookup skill guides the agent to resolve the ID first, then retrieve the relevant docs in a single flow. |
+| [Resolve a library name to a Context7 ID](examples/resolve-a-library-name-to-a-context7-id/) | Ask "What is the Context7 ID for Next.js?" and the agent calls resolve_library_id to return matching libraries with their '/org/project' identifiers. |
+| [Fetch topic-scoped documentation for a library](examples/fetch-topic-scoped-documentation-for-a-library/) | Ask "How do I set up JWT auth in Express.js?" and the agent resolves the library, then calls get_library_docs to return focused, up-to-date documentation for that specific topic. |
+| [Look up version-specific API behavior](examples/look-up-version-specific-api-behavior/) | Provide a versioned ID such as '/vercel/next.js/v14.3.0-canary.87' and ask about the App Router; the agent fetches documentation scoped to that exact version. |
+| [End-to-end library documentation lookup](examples/end-to-end-library-documentation-lookup/) | Give a bare library name and a question; the library-documentation-lookup skill guides the agent to resolve the ID first, then retrieve the relevant docs in a single flow. |
 
 ## Skills (loaded into the system prompt)
 
@@ -97,51 +95,9 @@ infer agents add documentation-agent http://localhost:8080 \
 
 ## Configuration
 
-Configure the agent via environment variables:
-
-### Custom Configuration
-
-The following custom configuration variables are available. Defaults are
-derived from `spec.config.*` in `agent.yaml`; the env vars below override
-them at runtime.
-
-| Category | Variable | Default |
-|----------|----------|---------|
-| **Tools** | `TOOLS_READ_ENABLED` | `true` |
-
-### Environment Variables
-
-| Category | Variable | Description | Default |
-|----------|----------|-------------|---------|
-| **Server** | `A2A_PORT` | Server port | `8080` |
-| **Server** | `A2A_DEBUG` | Enable debug mode | `false` |
-| **Server** | `A2A_AGENT_URL` | Agent URL for internal references | `http://localhost:8080` |
-| **Server** | `A2A_STREAMING_STATUS_UPDATE_INTERVAL` | Streaming status update frequency | `1s` |
-| **Server** | `A2A_SERVER_READ_TIMEOUT` | HTTP server read timeout | `120s` |
-| **Server** | `A2A_SERVER_WRITE_TIMEOUT` | HTTP server write timeout | `120s` |
-| **Server** | `A2A_SERVER_IDLE_TIMEOUT` | HTTP server idle timeout | `120s` |
-| **Server** | `A2A_SERVER_DISABLE_HEALTHCHECK_LOG` | Disable logging for health check requests | `true` |
-| **Agent Metadata** | `A2A_AGENT_CARD_FILE_PATH` | Path to agent card JSON file | `.well-known/agent-card.json` |
-| **LLM Client** | `A2A_AGENT_CLIENT_PROVIDER` | LLM provider (`openai`, `anthropic`, `azure`, `ollama`, `deepseek`) |`` |
-| **LLM Client** | `A2A_AGENT_CLIENT_MODEL` | Model to use |`` |
-| **LLM Client** | `A2A_AGENT_CLIENT_API_KEY` | API key for LLM provider | - |
-| **LLM Client** | `A2A_AGENT_CLIENT_BASE_URL` | Custom LLM API endpoint | - |
-| **LLM Client** | `A2A_AGENT_CLIENT_TIMEOUT` | Timeout for LLM requests | `30s` |
-| **LLM Client** | `A2A_AGENT_CLIENT_MAX_RETRIES` | Maximum retries for LLM requests | `3` |
-| **LLM Client** | `A2A_AGENT_CLIENT_MAX_CHAT_COMPLETION_ITERATIONS` | Max chat completion rounds | `10` |
-| **LLM Client** | `A2A_AGENT_CLIENT_MAX_TOKENS` | Maximum tokens for LLM responses |`4096` |
-| **LLM Client** | `A2A_AGENT_CLIENT_TEMPERATURE` | Controls randomness of LLM output |`0.7` |
-| **Capabilities** | `A2A_CAPABILITIES_STREAMING` | Enable streaming responses | `true` |
-| **Capabilities** | `A2A_CAPABILITIES_PUSH_NOTIFICATIONS` | Enable push notifications | `false` |
-| **Capabilities** | `A2A_CAPABILITIES_STATE_TRANSITION_HISTORY` | Track state transitions | `true` |
-| **Task Management** | `A2A_TASK_RETENTION_MAX_COMPLETED_TASKS` | Max completed tasks to keep (0 = unlimited) | `100` |
-| **Task Management** | `A2A_TASK_RETENTION_MAX_FAILED_TASKS` | Max failed tasks to keep (0 = unlimited) | `50` |
-| **Task Management** | `A2A_TASK_RETENTION_CLEANUP_INTERVAL` | Cleanup frequency (0 = manual only) | `5m` |
-| **Storage** | `A2A_QUEUE_PROVIDER` | Storage backend (`memory` or `redis`) | `memory` |
-| **Storage** | `A2A_QUEUE_URL` | Redis connection URL (when using Redis) | - |
-| **Storage** | `A2A_QUEUE_MAX_SIZE` | Maximum queue size | `100` |
-| **Storage** | `A2A_QUEUE_CLEANUP_INTERVAL` | Task cleanup interval | `30s` |
-| **Authentication** | `A2A_AUTH_ENABLE` | Enable OIDC authentication | `false` |
+The agent is configured via environment variables. Defaults are derived
+from `agent.yaml`; see [CONFIGURATIONS.md](CONFIGURATIONS.md) for the
+full reference of custom and `A2A_*` variables.
 
 ## Development
 
@@ -203,10 +159,6 @@ docker run --rm -it --network host ghcr.io/inference-gateway/a2a-debugger:latest
 The Docker image can be built with custom version information using build arguments:
 
 ```bash
-# Build with default values from ADL
-docker build -t documentation-agent .
-
-# Build with custom version information
 docker build \
   --build-arg VERSION=1.2.3 \
   --build-arg AGENT_NAME="My Custom Agent" \
