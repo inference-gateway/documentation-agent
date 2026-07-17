@@ -5,7 +5,7 @@ metadata:
   description:
     A2A agent server that provides Context7-style documentation capabilities for
     your agents
-  version: 0.2.32
+  version: 0.3.0
 spec:
   capabilities:
     streaming: true

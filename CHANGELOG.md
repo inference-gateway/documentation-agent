@@ -2,6 +2,67 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0](https://github.com/inference-gateway/documentation-agent/compare/v0.2.32...v0.3.0) (2026-07-17)
+
+### ✨ Features
+
+* **telemetry:** add OpenTelemetry support via agent.yaml manifest ([#76](https://github.com/inference-gateway/documentation-agent/issues/76)) ([868c4e3](https://github.com/inference-gateway/documentation-agent/commit/868c4e342c05c6b13c814fbd9c11025b5871e701))
+
+### 👷 CI
+
+* **claude:** change effort to max ([44337d0](https://github.com/inference-gateway/documentation-agent/commit/44337d09be8ed7ab86983007d528b1fe07735bbd))
+* **claude:** remove system prompt - use default community maintained prompt ([20b9304](https://github.com/inference-gateway/documentation-agent/commit/20b9304f8ee12654add83baa32e34d142fed1f49))
+* **claude:** standardize workflow + task-based branch prefix ([b2c3289](https://github.com/inference-gateway/documentation-agent/commit/b2c3289e881e50ce6ad8e8831a34e6496d61367c))
+* **deps:** downgrade task version from 3.51.1 to 3.48.0 in workflows and manifest ([60d12e3](https://github.com/inference-gateway/documentation-agent/commit/60d12e3d567bac0b8247dc0ce4c915e83f8f0c11))
+* **deps:** upgrade actions/checkout from v6.0.3 to v7.0.0 across workflows ([7d467f3](https://github.com/inference-gateway/documentation-agent/commit/7d467f3de17973ad71635e9e37c27d7b2f48a8f6))
+* **release:** update semantic release and plugins to latest versions with local installation ([5a1a8c2](https://github.com/inference-gateway/documentation-agent/commit/5a1a8c207b5073199c2730137d0772c594eee268))
+
+### 📚 Documentation
+
+* author spec.documentation and spec.examples in agent.yaml ([#66](https://github.com/inference-gateway/documentation-agent/issues/66)) ([dcd9db4](https://github.com/inference-gateway/documentation-agent/commit/dcd9db430d819b63234e44ab52bd2a43b83fb7dd)), closes [#65](https://github.com/inference-gateway/documentation-agent/issues/65)
+
+### 🔧 Miscellaneous
+
+* **adl:** refresh agent.yaml defaults from ADL CLI v0.50.2 ([#67](https://github.com/inference-gateway/documentation-agent/issues/67)) ([e72dd94](https://github.com/inference-gateway/documentation-agent/commit/e72dd947c8d0125096cced28d4f897bc7c83c5aa))
+* **deps:** bump ADL CLI to v0.47.1 ([#56](https://github.com/inference-gateway/documentation-agent/issues/56)) ([f8f595e](https://github.com/inference-gateway/documentation-agent/commit/f8f595e96fff29a1fbd653925e4ef9f4a06d3240))
+* **deps:** bump ADL CLI to v0.52.0 ([#75](https://github.com/inference-gateway/documentation-agent/issues/75)) ([d848fd0](https://github.com/inference-gateway/documentation-agent/commit/d848fd01ee36dcb7e66712316ed0475031b71904))
+* **deps:** bump ADL CLI v0.39.3 -> v0.40.0 ([#36](https://github.com/inference-gateway/documentation-agent/issues/36)) ([d3eab2b](https://github.com/inference-gateway/documentation-agent/commit/d3eab2bccc777c1d7c25b46427ea3372c93af601))
+* **deps:** bump ADL CLI v0.40.0 -> v0.43.2 ([#38](https://github.com/inference-gateway/documentation-agent/issues/38)) ([765773e](https://github.com/inference-gateway/documentation-agent/commit/765773e8f1859e35d139c69555ba195c3e47e05b))
+* **deps:** bump ADL CLI v0.43.2 -> v0.44.0 ([#42](https://github.com/inference-gateway/documentation-agent/issues/42)) ([e426858](https://github.com/inference-gateway/documentation-agent/commit/e42685859ffcd6781daa8fd5dd3f6d7013fb46f2))
+* **deps:** bump ADL CLI v0.44.0 -> v0.46.0 ([#50](https://github.com/inference-gateway/documentation-agent/issues/50)) ([3f0949d](https://github.com/inference-gateway/documentation-agent/commit/3f0949d79df9c4872d713c140cda5ca6e87bf8c9))
+* **deps:** bump ADL CLI v0.46.0 -> v0.46.5 ([#53](https://github.com/inference-gateway/documentation-agent/issues/53)) ([e62d31a](https://github.com/inference-gateway/documentation-agent/commit/e62d31ab987d351cf235eb5999f5228fb8e66a3c))
+* **deps:** bump ADL CLI v0.46.5 -> v0.47.0 ([#55](https://github.com/inference-gateway/documentation-agent/issues/55)) ([7946b05](https://github.com/inference-gateway/documentation-agent/commit/7946b053d1cd95fa28e989316827cd73eeb73d0d))
+* **deps:** bump ADL CLI v0.47.1 -> v0.48.0 ([#57](https://github.com/inference-gateway/documentation-agent/issues/57)) ([94ff31a](https://github.com/inference-gateway/documentation-agent/commit/94ff31ac915bac1b9ea13329c24b34acfad95959))
+* **deps:** bump ADL CLI v0.48.0 -> v0.48.1 ([#59](https://github.com/inference-gateway/documentation-agent/issues/59)) ([163db8a](https://github.com/inference-gateway/documentation-agent/commit/163db8a9c54439992250f15208f93e303a26a6d9))
+* **deps:** bump ADL CLI v0.48.1 -> v0.48.4 ([#60](https://github.com/inference-gateway/documentation-agent/issues/60)) ([1003032](https://github.com/inference-gateway/documentation-agent/commit/1003032b97ac14e2831655125c6d821a195b16e5))
+* **deps:** bump ADL CLI v0.48.4 -> v0.49.0 ([#63](https://github.com/inference-gateway/documentation-agent/issues/63)) ([b40f31f](https://github.com/inference-gateway/documentation-agent/commit/b40f31f19219501e277e578d3fecaebe96ef4a30))
+* **deps:** bump ADL CLI v0.49.0 -> v0.50.2 ([#68](https://github.com/inference-gateway/documentation-agent/issues/68)) ([506d30e](https://github.com/inference-gateway/documentation-agent/commit/506d30e9fb065a0e269929309e7b212ca25467ff))
+* **deps:** bump ADL CLI v0.50.2 -> v0.51.0 ([#70](https://github.com/inference-gateway/documentation-agent/issues/70)) ([e4ebb96](https://github.com/inference-gateway/documentation-agent/commit/e4ebb9698a77c9eee7c33bb3db5a87ab18543812))
+* **deps:** bump ADL CLI v0.51.0 -> v0.51.4 ([#73](https://github.com/inference-gateway/documentation-agent/issues/73)) ([ebbffb8](https://github.com/inference-gateway/documentation-agent/commit/ebbffb874af4831267262d0329b62facd6b798ff))
+* **deps:** bump docker/setup-qemu-action version v4.0.0 -> v4.1.0 ([82255bf](https://github.com/inference-gateway/documentation-agent/commit/82255bffd204c8da8328b9ba624721ab29f118d7))
+* **flox:** downgrade deps ([718844e](https://github.com/inference-gateway/documentation-agent/commit/718844ed4f371b0c0dfb53906f9534149c8ef0a4))
+* **schema:** update adl schema to latest ([6dafe07](https://github.com/inference-gateway/documentation-agent/commit/6dafe07105d7546268311c50521734153799910c))
+
+### 🔨 Miscellaneous
+
+* **deps:** Bump anthropics/claude-code-action ([#39](https://github.com/inference-gateway/documentation-agent/issues/39)) ([f169399](https://github.com/inference-gateway/documentation-agent/commit/f16939959968231ca4a9da1ed19d03c7fa232157))
+* **deps:** bump anthropics/claude-code-action ([#41](https://github.com/inference-gateway/documentation-agent/issues/41)) ([2f83f06](https://github.com/inference-gateway/documentation-agent/commit/2f83f063e216c6db02ec6276ef08b75b2496240a))
+* **deps:** bump github.com/inference-gateway/adk in the gomod group ([#48](https://github.com/inference-gateway/documentation-agent/issues/48)) ([ba45218](https://github.com/inference-gateway/documentation-agent/commit/ba45218acf1d7dc9fd94ea421cb1485d1cf9367e))
+* **deps:** bump github.com/inference-gateway/adk in the gomod group ([#61](https://github.com/inference-gateway/documentation-agent/issues/61)) ([e6b33aa](https://github.com/inference-gateway/documentation-agent/commit/e6b33aac4ac268afb9504a925ada10bb07128a1f))
+* **deps:** bump github.com/inference-gateway/adk in the gomod group ([#71](https://github.com/inference-gateway/documentation-agent/issues/71)) ([1b22035](https://github.com/inference-gateway/documentation-agent/commit/1b220354cef178a0d9caab70a6a04957b6b838e7))
+* **deps:** bump github.com/quic-go/quic-go from 0.59.0 to 0.59.1 ([#40](https://github.com/inference-gateway/documentation-agent/issues/40)) ([5129327](https://github.com/inference-gateway/documentation-agent/commit/51293273b84b5fc24b235ec1d48a262df4b2087f))
+* **deps:** bump Go version from 1.26.2 to 1.26.4 in agent configuration ([9135c86](https://github.com/inference-gateway/documentation-agent/commit/9135c86db4b0d1b528f2bf81ca800acb99b1bcee))
+* **deps:** bump golang.org/x/crypto from 0.51.0 to 0.52.0 ([#49](https://github.com/inference-gateway/documentation-agent/issues/49)) ([c7544a5](https://github.com/inference-gateway/documentation-agent/commit/c7544a5bb8b74fa37eaaca3529c27f39ebaf8281))
+* **deps:** bump golang.org/x/net from 0.51.0 to 0.55.0 ([#46](https://github.com/inference-gateway/documentation-agent/issues/46)) ([3b8bc3d](https://github.com/inference-gateway/documentation-agent/commit/3b8bc3dad831335313d22bf4f0e4591e40dc4c5b))
+* **deps:** bump inference-gateway/infer-action ([#64](https://github.com/inference-gateway/documentation-agent/issues/64)) ([74b8a5b](https://github.com/inference-gateway/documentation-agent/commit/74b8a5bf04eff79e5a59be2e32f6f71209c25520))
+* **deps:** bump inference-gateway/infer-action ([#69](https://github.com/inference-gateway/documentation-agent/issues/69)) ([d03707e](https://github.com/inference-gateway/documentation-agent/commit/d03707e25b997e9ab1a1af1096a512a1fbb8c20e))
+* **deps:** bump inference-gateway/infer-action ([#74](https://github.com/inference-gateway/documentation-agent/issues/74)) ([a093e94](https://github.com/inference-gateway/documentation-agent/commit/a093e94d960e1c9f7100e20940110e248adc5882))
+* **deps:** bump the github-actions group with 2 updates ([#44](https://github.com/inference-gateway/documentation-agent/issues/44)) ([69c3f83](https://github.com/inference-gateway/documentation-agent/commit/69c3f83b0bf26a625f076aebbe77fce4f0e86aee))
+* **deps:** bump the github-actions group with 2 updates ([#47](https://github.com/inference-gateway/documentation-agent/issues/47)) ([bdbf43c](https://github.com/inference-gateway/documentation-agent/commit/bdbf43c297422023d9b7cbd5a3b724b9ab28f072))
+* **deps:** bump the github-actions group with 3 updates ([#72](https://github.com/inference-gateway/documentation-agent/issues/72)) ([8504d1a](https://github.com/inference-gateway/documentation-agent/commit/8504d1a53efae42e8636c62ef9d3024d3c9a3dd5))
+* **deps:** bump the github-actions group with 6 updates ([#45](https://github.com/inference-gateway/documentation-agent/issues/45)) ([d994f58](https://github.com/inference-gateway/documentation-agent/commit/d994f58a6ae3912d172a1476786f43e962cd4c0f))
+* **deps:** downgrade go-task version from 3.51.1 to 3.48.0 in workflows and manifest ([e78fe6a](https://github.com/inference-gateway/documentation-agent/commit/e78fe6a65b62562a1b0e62006d96d4b0cacaddb5))
+
 ## [0.2.32](https://github.com/inference-gateway/documentation-agent/compare/v0.2.31...v0.2.32) (2026-05-26)
 
 ### 🔧 Miscellaneous

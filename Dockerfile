@@ -5,7 +5,7 @@
 FROM golang:1.26.4-alpine AS builder
 
 # Build arguments for version injection
-ARG VERSION="0.2.32"
+ARG VERSION="0.3.0"
 ARG AGENT_NAME="documentation-agent"
 ARG AGENT_DESCRIPTION="A2A agent server that provides Context7-style documentation capabilities for your agents"
 
