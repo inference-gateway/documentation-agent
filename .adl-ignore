@@ -16,3 +16,4 @@
 tools/get_library_docs.go
 tools/resolve_library_id.go
 skills/
+examples/
