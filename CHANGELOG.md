@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.1](https://github.com/inference-gateway/documentation-agent/compare/v0.3.0...v0.3.1) (2026-07-23)
+
+### 🔧 Miscellaneous
+
+* **adl:** refresh agent.yaml defaults from ADL CLI v0.54.0 ([#77](https://github.com/inference-gateway/documentation-agent/issues/77)) ([68ff043](https://github.com/inference-gateway/documentation-agent/commit/68ff043ce317d4e890c7110417a8a38e25af05c2))
+* **deps:** bump ADL CLI to v0.54.0 ([#78](https://github.com/inference-gateway/documentation-agent/issues/78)) ([eaaf22d](https://github.com/inference-gateway/documentation-agent/commit/eaaf22d92ed23bde025208d92b766180c26b38a1))
+
 ## [0.3.0](https://github.com/inference-gateway/documentation-agent/compare/v0.2.32...v0.3.0) (2026-07-17)
 
 ### ✨ Features
