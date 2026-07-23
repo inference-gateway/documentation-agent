@@ -51,7 +51,7 @@ This agent ships 1 markdown skill that are loaded into the system prompt at star
 ### library-documentation-lookup
 - **Description**: Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior.
 - **Tags**: docs, libraries, context7, documentation, reference
-- **Source**: scaffolded locally (`skills/library-documentation-lookup/SKILL.md`)
+- **Source**: scaffolded locally (`.agents/skills/library-documentation-lookup/SKILL.md`)
 
 ## Server Configuration
 
@@ -130,7 +130,7 @@ docker run -p 8080:8080 documentation-agent
 │   └── read.go                   # Read a file from disk. Returns its contents, optionally sliced by line offset/limit. Use this to load SKILL.md bodies on demand.
 │   └── resolve_library_id.go     # Resolves library name to Context7-compatible library ID and returns matching libraries
 │   └── get_library_docs.go       # Fetches up-to-date documentation for a library using Context7-compatible library ID
-├── skills/                       # Skill directories (SKILL.md + optional assets)
+├── .agents/skills/               # Skill directories (SKILL.md + optional assets)
 │   └── library-documentation-lookup/# Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior.
 │       └── SKILL.md              # Playbook prepended to the system prompt
 ├── .well-known/                  # Agent configuration

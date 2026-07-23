@@ -10,7 +10,7 @@ documentation-agent is an A2A (Agent-to-Agent) server implementing the [A2A Prot
 
 ### ADL-Generated Structure
 
-The codebase is generated using ADL CLI 0.52.0 and follows a strict generation pattern:
+The codebase is generated using ADL CLI 0.54.0 and follows a strict generation pattern:
 - **Generated Files**: Marked with `DO NOT EDIT` headers - manual changes will be overwritten
 - **Configuration Source**: `agent.yaml` - defines agent capabilities, skills, and metadata
 - **Server Implementation**: Built on the ADK (Agent Development Kit) framework from `github.com/inference-gateway/adk`
@@ -89,17 +89,19 @@ To modify tools:
 The following skills are currently shipped with the agent:
 - **library-documentation-lookup** (bare scaffold): Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior.
 
-Each skill lives in its own directory at `skills/<id>/SKILL.md` and is
-loaded into the system prompt at startup. Bare skills can ship arbitrary
+Each skill lives in its own directory at `.agents/skills/<id>/SKILL.md`
+and is loaded into the system prompt at startup. A generated `.claude/skills`
+-> `../.agents/skills` symlink makes the same tree readable as `.claude/skills/<id>/SKILL.md`,
+so Claude Code picks these skills up directly. Bare skills can ship arbitrary
 bundled assets (scripts, templates, resources) alongside `SKILL.md` -
-the whole `skills/<id>/` directory is protected by `.adl-ignore` against
+the whole `.agents/skills/<id>/` directory is protected by `.adl-ignore` against
 regeneration overwrites. To modify skills:
 1. Update `agent.yaml` `spec.skills` with skill definitions
 2. Run `task generate` (registry skills are re-fetched; bare skill
    directories are preserved when listed in `.adl-ignore`)
-3. For bare skills, edit `skills/<id>/SKILL.md` directly - frontmatter
+3. For bare skills, edit `.agents/skills/<id>/SKILL.md` directly - frontmatter
    (`name`/`description`/`tags`) shows up on the agent card. Drop helper
-   scripts or templates next to it (e.g. `skills/<id>/scripts/foo.py`).
+   scripts or templates next to it (e.g. `.agents/skills/<id>/scripts/foo.py`).
 
 ### Modifying Agent Behavior
 
@@ -124,7 +126,7 @@ When implementing tests:
 
 - **Generated Files**: Never manually edit files with "DO NOT EDIT" headers
 - **Configuration Changes**: Always modify `agent.yaml` and regenerate
-- **ADL Version**: Ensure ADL CLI 0.52.0 or compatible version for regeneration
+- **ADL Version**: Ensure ADL CLI 0.54.0 or compatible version for regeneration
 - **Port Configuration**: Default 8080, configurable via `A2A_PORT` or `A2A_SERVER_PORT`
 
 ## Debugging Tips

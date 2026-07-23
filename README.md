@@ -87,7 +87,7 @@ infer agents add documentation-agent http://localhost:8080 \
 
 | Skill | Description | Source |
 |-------|-------------|--------|
-| `library-documentation-lookup` | Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior. | bare scaffold (`skills/library-documentation-lookup.md`) |
+| `library-documentation-lookup` | Use this when you need up-to-date documentation for a third-party library or framework before writing code against it. First resolves the library name to a Context7-compatible ID via resolve_library_id when the caller does not already know it (format '/org/project' or '/org/project/version'), then fetches focused, topic-scoped documentation via get_library_docs. Good for filling in unknowns about specific APIs, hooks, configuration options, or version-specific behavior. | bare scaffold (`.agents/skills/library-documentation-lookup/SKILL.md`) |
 
 ## Documentation
 - [Getting Started](docs/getting-started.md)
