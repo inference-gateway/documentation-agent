@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.3](https://github.com/inference-gateway/documentation-agent/compare/v0.3.2...v0.3.3) (2026-07-29)
+
+### 🔧 Miscellaneous
+
+* **adl:** refresh agent.yaml defaults from ADL CLI v0.57.0 ([#85](https://github.com/inference-gateway/documentation-agent/issues/85)) ([355c485](https://github.com/inference-gateway/documentation-agent/commit/355c485e314ce4cc4de152c43616564ab87ce76f))
+* **deps:** bump ADL CLI v0.55.0 -> v0.56.0 ([#81](https://github.com/inference-gateway/documentation-agent/issues/81)) ([25058b9](https://github.com/inference-gateway/documentation-agent/commit/25058b94fa89b9ebd40f56fb6607f44587049183))
+* **deps:** bump ADL CLI v0.56.0 -> v0.57.0 ([#83](https://github.com/inference-gateway/documentation-agent/issues/83)) ([0536b67](https://github.com/inference-gateway/documentation-agent/commit/0536b679eb99153dc67d3043c4fdebc533c4a2e5))
+* **deps:** bump ADL CLI v0.57.0 -> v0.57.1 ([#86](https://github.com/inference-gateway/documentation-agent/issues/86)) ([3808d7e](https://github.com/inference-gateway/documentation-agent/commit/3808d7e187082676460df1f1dc2922e0eca5a2b6))
+
+### 🔨 Miscellaneous
+
+* **deps:** bump anthropics/claude-code-action ([#82](https://github.com/inference-gateway/documentation-agent/issues/82)) ([7dcaa9a](https://github.com/inference-gateway/documentation-agent/commit/7dcaa9a4018b822c9cbeb2260f8df19d890cfaf5))
+* **deps:** bump docker/login-action in the github-actions group ([#80](https://github.com/inference-gateway/documentation-agent/issues/80)) ([f71fe28](https://github.com/inference-gateway/documentation-agent/commit/f71fe281a3f69eb6c043ecbfb617128a9fc9d506))
+* **deps:** bump docker/login-action in the github-actions group ([#84](https://github.com/inference-gateway/documentation-agent/issues/84)) ([5677676](https://github.com/inference-gateway/documentation-agent/commit/5677676fbf6955278475d1d68bfeea23f9567857))
+
 ## [0.3.2](https://github.com/inference-gateway/documentation-agent/compare/v0.3.1...v0.3.2) (2026-07-23)
 
 ### 🔧 Miscellaneous
