@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.4](https://github.com/inference-gateway/documentation-agent/compare/v0.3.3...v0.3.4) (2026-08-05)
+
+### 👷 CI
+
+* remove deprecated ollama-api-key input ([#91](https://github.com/inference-gateway/documentation-agent/issues/91)) ([818a5cf](https://github.com/inference-gateway/documentation-agent/commit/818a5cfe2a7bb3dc86f1cab9f6c732daa0e67dc5))
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI v0.57.1 -> v0.57.2 ([#87](https://github.com/inference-gateway/documentation-agent/issues/87)) ([9a9e086](https://github.com/inference-gateway/documentation-agent/commit/9a9e08689c704b7e4808c7cc51a6492ec9c36a4d))
+* **deps:** bump ADL CLI v0.57.2 -> v0.58.0 ([#89](https://github.com/inference-gateway/documentation-agent/issues/89)) ([61c7747](https://github.com/inference-gateway/documentation-agent/commit/61c7747cc7bd829402048ae770efecf62a74ed9e))
+* **deps:** bump ADL CLI v0.58.0 -> v0.58.1 ([#90](https://github.com/inference-gateway/documentation-agent/issues/90)) ([1c94c99](https://github.com/inference-gateway/documentation-agent/commit/1c94c99333931cb765fad41db1d886c046ba58be))
+* **deps:** bump ADL CLI v0.58.1 -> v0.59.0 ([#92](https://github.com/inference-gateway/documentation-agent/issues/92)) ([b1b4da8](https://github.com/inference-gateway/documentation-agent/commit/b1b4da87028b8ecc62f34cc0960545314d030cad))
+
 ## [0.3.3](https://github.com/inference-gateway/documentation-agent/compare/v0.3.2...v0.3.3) (2026-07-29)
 
 ### 🔧 Miscellaneous
