@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.6](https://github.com/inference-gateway/documentation-agent/compare/v0.3.5...v0.3.6) (2026-09-04)
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI v0.60.1 -> v0.60.2 ([#95](https://github.com/inference-gateway/documentation-agent/issues/95)) ([9aa203e](https://github.com/inference-gateway/documentation-agent/commit/9aa203ee8ed72e223b972dc6850c1f853b9323ed))
+* **deps:** bump ADL CLI v0.60.2 -> v0.60.3 ([#96](https://github.com/inference-gateway/documentation-agent/issues/96)) ([30e5643](https://github.com/inference-gateway/documentation-agent/commit/30e5643016ffbb132f212f83a4da3db9b4917829))
+* **deps:** bump ADL CLI v0.60.3 -> v0.60.4 ([#98](https://github.com/inference-gateway/documentation-agent/issues/98)) ([4ad4712](https://github.com/inference-gateway/documentation-agent/commit/4ad4712b057625b29463934117dfafc4f21cd728))
+* **deps:** bump ADL CLI v0.60.4 -> v0.60.5 ([#99](https://github.com/inference-gateway/documentation-agent/issues/99)) ([b0a300e](https://github.com/inference-gateway/documentation-agent/commit/b0a300e115b3ef6bb6087f2623d9164367f2f5cb))
+* **deps:** bump ADL CLI v0.60.5 -> v0.61.1 ([#100](https://github.com/inference-gateway/documentation-agent/issues/100)) ([df0f2ab](https://github.com/inference-gateway/documentation-agent/commit/df0f2aba3b4ecd16643813feb51d30042834e225))
+* **deps:** bump ADL CLI v0.61.1 -> v0.61.3 ([#101](https://github.com/inference-gateway/documentation-agent/issues/101)) ([1325feb](https://github.com/inference-gateway/documentation-agent/commit/1325feb5ccd111ab49bda266bab3794cd1194cd4))
+* **deps:** bump ADL CLI v0.61.3 -> v0.61.4 ([#103](https://github.com/inference-gateway/documentation-agent/issues/103)) ([4f5079a](https://github.com/inference-gateway/documentation-agent/commit/4f5079a04a9da60455a68a9da3920c8e256f0818))
+* **deps:** bump ADL CLI v0.61.4 -> v0.62.1 ([#104](https://github.com/inference-gateway/documentation-agent/issues/104)) ([e1f8e61](https://github.com/inference-gateway/documentation-agent/commit/e1f8e61c19597d5f0ac084c64af94293ea7f50b5))
+* **deps:** bump ADL CLI v0.62.1 -> v0.62.2 ([#106](https://github.com/inference-gateway/documentation-agent/issues/106)) ([7e2ef55](https://github.com/inference-gateway/documentation-agent/commit/7e2ef5587ec09f472938cff1deba85595a5e3fce))
+* **deps:** bump ADL CLI v0.62.2 -> v0.62.3 ([#107](https://github.com/inference-gateway/documentation-agent/issues/107)) ([2777d0e](https://github.com/inference-gateway/documentation-agent/commit/2777d0e57f32efb3ea5ec994bf769ed232d8e08d))
+* **deps:** bump ADL CLI v0.62.3 -> v0.62.5 ([#112](https://github.com/inference-gateway/documentation-agent/issues/112)) ([585b83e](https://github.com/inference-gateway/documentation-agent/commit/585b83e64e13c85a9adec903e3a7b14e765920f7))
+* **deps:** bump ADL CLI v0.62.5 -> v0.62.8 ([#114](https://github.com/inference-gateway/documentation-agent/issues/114)) ([a7643ce](https://github.com/inference-gateway/documentation-agent/commit/a7643ce313c9e7e496684de9e32156434f449606))
+* **deps:** bump Go toolchain to 1.26.7 and pin explicitly ([#113](https://github.com/inference-gateway/documentation-agent/issues/113)) ([5759dbc](https://github.com/inference-gateway/documentation-agent/commit/5759dbc5b97ba0b004694953d6a46865f8d6611f))
+
 ## [0.3.5](https://github.com/inference-gateway/documentation-agent/compare/v0.3.4...v0.3.5) (2026-08-07)
 
 ### 🔧 Miscellaneous
