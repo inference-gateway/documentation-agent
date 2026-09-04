@@ -133,11 +133,6 @@ spec:
         deps: []
         devdeps: []
   hooks:
-    # Temporary: google.golang.org/grpc is only an indirect dependency
-    # (pulled in via github.com/inference-gateway/adk), so `adl generate`
-    # rewriting go.mod from this manifest resets it to the ADK's required
-    # version and drops Dependabot's security bump. Re-pin v1.83.1 after
-    # `go mod tidy`; remove once the ADK requires grpc >= v1.83.1.
     post:
       - go mod tidy
       - go get google.golang.org/grpc@v1.83.1
