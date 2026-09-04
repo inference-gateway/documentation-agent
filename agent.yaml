@@ -132,6 +132,10 @@ spec:
       vendor:
         deps: []
         devdeps: []
+  hooks:
+    post:
+      - go mod tidy
+      - go get google.golang.org/grpc@v1.83.1
   documentation:
     pages:
       - title: Getting Started
