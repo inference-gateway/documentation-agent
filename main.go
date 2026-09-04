@@ -18,9 +18,9 @@ import (
 	"syscall"
 
 	envconfig "github.com/sethvargo/go-envconfig"
-	cobra "github.com/spf13/cobra"
 	zap "go.uber.org/zap"
 	yaml "gopkg.in/yaml.v3"
+	cobra "github.com/spf13/cobra"
 
 	server "github.com/inference-gateway/adk/server"
 
@@ -29,6 +29,7 @@ import (
 
 	logger "github.com/inference-gateway/documentation-agent/internal/logger"
 )
+
 
 // Version, AgentName and AgentDescription are injected at build time
 // via `-ldflags "-X 'main.Version=...'"` (see Dockerfile). They default
@@ -133,7 +134,7 @@ func taskWorkers() int {
 		return 4
 	}
 	return n
-} // newRootCmd builds the top-level CLI for the agent binary. The
+}// newRootCmd builds the top-level CLI for the agent binary. The
 // generated binary is a real CLI: `<bin> --version`, `<bin> --help`,
 // and `<bin> start` are all supported. Subcommands are added in
 // dedicated constructors so they can be unit-tested in isolation.
@@ -188,7 +189,7 @@ func runStart(ctx context.Context) error {
 		return fmt.Errorf("failed to initialize logger: %w", err)
 	}
 
-	l.Info("starting "+AgentName+" agent", zap.String("version", Version), zap.Bool("debug", cfg.A2A.Debug))
+	l.Info("starting " + AgentName + " agent", zap.String("version", Version), zap.Bool("debug", cfg.A2A.Debug))
 	l.Debug("loaded configuration", zap.Any("config", cfg))
 
 	resolvedSkillsDir := skillsDir
@@ -245,6 +246,8 @@ func runStart(ctx context.Context) error {
 		return fmt.Errorf("failed to create agent: %w", err)
 	}
 
+
+
 	a2aServer, err := server.NewA2AServerBuilder(cfg.A2A, l).
 		WithAgent(agent).
 		WithAgentCardFromFile(".well-known/agent-card.json", map[string]any{
@@ -272,6 +275,8 @@ func runStart(ctx context.Context) error {
 	for range workers - 1 {
 		go a2aServer.StartTaskProcessor(ctx)
 	}
+
+
 
 	l.Info("documentation-agent agent running successfully",
 		zap.String("port", cfg.A2A.ServerConfig.Port))
