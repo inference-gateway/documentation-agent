@@ -130,7 +130,8 @@ spec:
       module: "github.com/inference-gateway/documentation-agent"
       version: "1.26.7"
       vendor:
-        deps: []
+        deps:
+              - github.com/go-resty/resty/v2@v2.17.2
         devdeps: []
   hooks:
     post:
