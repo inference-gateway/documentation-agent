@@ -131,12 +131,11 @@ spec:
       version: "1.26.7"
       vendor:
         deps:
-              - github.com/go-resty/resty/v2@v2.17.2
+          - github.com/go-resty/resty/v2@v2.17.2
         devdeps: []
   hooks:
     post:
       - go mod tidy
-      - go get google.golang.org/grpc@v1.83.1
   documentation:
     pages:
       - title: Getting Started
