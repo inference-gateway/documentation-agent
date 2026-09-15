@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.7](https://github.com/inference-gateway/documentation-agent/compare/v0.3.6...v0.3.7) (2026-09-15)
+
+### 🔧 Miscellaneous
+
+* **adl:** refresh agent.yaml defaults from ADL CLI v0.63.0 ([#123](https://github.com/inference-gateway/documentation-agent/issues/123)) ([a7898ac](https://github.com/inference-gateway/documentation-agent/commit/a7898ace78eb99916665931e7271570b891461e6))
+* **deps:** bump ADL CLI to v0.62.10 ([#120](https://github.com/inference-gateway/documentation-agent/issues/120)) ([cf82a1a](https://github.com/inference-gateway/documentation-agent/commit/cf82a1abba72f01e4442198aa39060ee05ddb46b))
+* **deps:** bump ADL CLI v0.62.10 -> v0.62.12 ([#122](https://github.com/inference-gateway/documentation-agent/issues/122)) ([dbe1547](https://github.com/inference-gateway/documentation-agent/commit/dbe1547835753332fb52735b7b9647e51fc73346))
+* **deps:** bump ADL CLI v0.62.12 -> v0.63.0 ([#124](https://github.com/inference-gateway/documentation-agent/issues/124)) ([051a33d](https://github.com/inference-gateway/documentation-agent/commit/051a33dd5de907ebb351d9b287f483821e705df5))
+* **deps:** bump ADL CLI v0.62.8 -> v0.62.9 ([#119](https://github.com/inference-gateway/documentation-agent/issues/119)) ([a28d69d](https://github.com/inference-gateway/documentation-agent/commit/a28d69db963c0f6fd30aa6d86b7d4a9c73b331a5))
+* **deps:** bump ADL CLI v0.63.0 -> v0.63.1 ([#125](https://github.com/inference-gateway/documentation-agent/issues/125)) ([e29101e](https://github.com/inference-gateway/documentation-agent/commit/e29101e1c310b7d3c363b20b747ecb3df2cdb75a))
+* sync generated project with ADL manifest ([#115](https://github.com/inference-gateway/documentation-agent/issues/115)) ([f8b88ed](https://github.com/inference-gateway/documentation-agent/commit/f8b88ede61fdb32faab769a675e57112b60d16fe))
+* sync generated project with ADL manifest ([#116](https://github.com/inference-gateway/documentation-agent/issues/116)) ([261d6cf](https://github.com/inference-gateway/documentation-agent/commit/261d6cffd4d9617401888c5c10dacd0ec952428f))
+
+### 🔨 Miscellaneous
+
+* **deps:** bump google.golang.org/grpc from 1.83.0 to 1.83.1 ([#108](https://github.com/inference-gateway/documentation-agent/issues/108)) ([d709f5c](https://github.com/inference-gateway/documentation-agent/commit/d709f5c217c9ba627e382c744b44b50730bde14c))
+
 ## [0.3.6](https://github.com/inference-gateway/documentation-agent/compare/v0.3.5...v0.3.6) (2026-09-04)
 
 ### 🔧 Miscellaneous
