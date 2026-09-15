@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.8](https://github.com/inference-gateway/documentation-agent/compare/v0.3.7...v0.3.8) (2026-09-15)
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI v0.63.1 -> v0.63.2 ([#127](https://github.com/inference-gateway/documentation-agent/issues/127)) ([bf00211](https://github.com/inference-gateway/documentation-agent/commit/bf00211b4145a0f1d112cfa4009892b43e474116))
+* **deps:** bump ADL CLI v0.63.2 -> v0.63.3 ([#128](https://github.com/inference-gateway/documentation-agent/issues/128)) ([956ddc0](https://github.com/inference-gateway/documentation-agent/commit/956ddc0f0f1ae8a0eaa3ba2675ee32f6219f8df6))
+
 ## [0.3.7](https://github.com/inference-gateway/documentation-agent/compare/v0.3.6...v0.3.7) (2026-09-15)
 
 ### 🔧 Miscellaneous
