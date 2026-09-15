@@ -4,7 +4,7 @@ go 1.26.7
 
 require (
 	github.com/go-resty/resty/v2 v2.17.2
-	github.com/inference-gateway/adk v0.26.5
+	github.com/inference-gateway/adk v0.26.6
 	github.com/sethvargo/go-envconfig v1.4.3
 	github.com/spf13/cobra v1.10.2
 	go.opentelemetry.io/otel v1.46.0
