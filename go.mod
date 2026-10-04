@@ -1,10 +1,10 @@
 module github.com/inference-gateway/documentation-agent
 
-go 1.26.7
+go 1.26.8
 
 require (
 	github.com/go-resty/resty/v2 v2.17.2
-	github.com/inference-gateway/adk v0.29.0
+	github.com/inference-gateway/adk v0.32.2
 	github.com/sethvargo/go-envconfig v1.4.3
 	github.com/spf13/cobra v1.10.2
 	go.opentelemetry.io/otel v1.46.0
@@ -41,7 +41,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.30.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	github.com/inference-gateway/sdk v1.37.2 // indirect
+	github.com/inference-gateway/sdk v1.41.0 // indirect
 	github.com/invopop/jsonschema v0.14.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/klauspost/compress v1.20.0 // indirect
