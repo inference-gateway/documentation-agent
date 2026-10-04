@@ -179,7 +179,7 @@ func runStart(ctx context.Context) error {
 	// empty strings, and so any other consumer of cfg.A2A sees the real values.
 	cfg.A2A.AgentName = AgentName
 	cfg.A2A.AgentVersion = Version
-	cfg.A2A.AgentURL = cmp.Or(cfg.A2A.AgentURL, "http://localhost:8080", "http://localhost:"+cfg.A2A.ServerConfig.Port+"/a2a")
+	cfg.A2A.AgentURL = cmp.Or(cfg.A2A.AgentURL, "http://localhost:"+cfg.A2A.ServerConfig.Port+"/a2a")
 	// The OpenTelemetry SDK settings are read as A2A_OTEL_* through the ADK's
 	// A2A_-prefixed config (cfg.A2A.OTelConfig), so the single Process call above
 	// already loaded them - no separate OTel pass is required.
@@ -253,7 +253,7 @@ func runStart(ctx context.Context) error {
 			"version":     Version,
 			"description": AgentDescription,
 			"supportedInterfaces": []map[string]any{
-				{"url": cfg.A2A.AgentURL, "protocolBinding": "JSONRPC", "protocolVersion": "0.3.0"},
+				{"url": cfg.A2A.AgentURL, "protocolBinding": "JSONRPC", "protocolVersion": "1.0"},
 			},
 		}).
 		WithDefaultBackgroundTaskHandler().
