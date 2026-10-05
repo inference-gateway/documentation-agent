@@ -1,6 +1,6 @@
 {
 	"name": "documentation-agent",
-	"version": "0.3.15",
+	"version": "0.3.16",
 	"description": "A2A agent server that provides Context7-style documentation capabilities for your agents",
 	"supportedInterfaces": [{"protocolBinding":"JSONRPC","protocolVersion":"1.0","url":""}],
 	"documentationUrl": "https://docs.inference-gateway.com",
