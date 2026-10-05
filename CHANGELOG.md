@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.17](https://github.com/inference-gateway/documentation-agent/compare/v0.3.16...v0.3.17) (2026-10-05)
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI v0.67.0 -> v0.67.1 ([#140](https://github.com/inference-gateway/documentation-agent/issues/140)) ([851006f](https://github.com/inference-gateway/documentation-agent/commit/851006fcf2e407c462ce07c0e5b4f0f1b15cfa1c))
+
+### 🔨 Miscellaneous
+
+* **deps:** bump the gomod group across 1 directory with 2 updates ([#139](https://github.com/inference-gateway/documentation-agent/issues/139)) ([dfb9baf](https://github.com/inference-gateway/documentation-agent/commit/dfb9baf517eb3acd38d9dad26164695a433548bb))
+
 ## [0.3.16](https://github.com/inference-gateway/documentation-agent/compare/v0.3.15...v0.3.16) (2026-10-05)
 
 ### 🔧 Miscellaneous
