@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.21](https://github.com/inference-gateway/documentation-agent/compare/v0.3.20...v0.3.21) (2026-11-15)
+
+### 🔧 Miscellaneous
+
+* **deps:** bump ADL CLI v0.68.0 -> v0.68.1 ([#147](https://github.com/inference-gateway/documentation-agent/issues/147)) ([309d4f9](https://github.com/inference-gateway/documentation-agent/commit/309d4f96ec2b7d66049f469528283d28b9ad8fc8))
+* **deps:** bump ADL CLI v0.68.1 -> v0.68.2 ([#150](https://github.com/inference-gateway/documentation-agent/issues/150)) ([0fa1c2b](https://github.com/inference-gateway/documentation-agent/commit/0fa1c2bda20196b953a2338367260be96beef9cb))
+* **deps:** bump ADL CLI v0.68.2 -> v0.68.3 ([#152](https://github.com/inference-gateway/documentation-agent/issues/152)) ([da97170](https://github.com/inference-gateway/documentation-agent/commit/da97170e2d202ffd468595f0484feaace05cb98d))
+* **deps:** bump ADL CLI v0.68.3 -> v0.68.4 ([#155](https://github.com/inference-gateway/documentation-agent/issues/155)) ([b3350d8](https://github.com/inference-gateway/documentation-agent/commit/b3350d848e01238905ef7a6ef2c91ef1c56e9f00))
+* **deps:** bump ADL CLI v0.68.4 -> v0.68.5 ([#157](https://github.com/inference-gateway/documentation-agent/issues/157)) ([7ae74c0](https://github.com/inference-gateway/documentation-agent/commit/7ae74c0cd77dbf8e82798acc48f584f42c608910))
+* **deps:** bump ADL CLI v0.68.5 -> v0.68.7 ([#160](https://github.com/inference-gateway/documentation-agent/issues/160)) ([a6d6ebb](https://github.com/inference-gateway/documentation-agent/commit/a6d6ebbdf64c9f98072e0391c8b34d1f040128bf))
+* **deps:** bump ADL CLI v0.68.7 -> v0.68.8 ([#162](https://github.com/inference-gateway/documentation-agent/issues/162)) ([a5afc00](https://github.com/inference-gateway/documentation-agent/commit/a5afc00c36a5662a5341e0a19b04b997ad6ad00c))
+* **deps:** bump flox dependencies to latest ([#161](https://github.com/inference-gateway/documentation-agent/issues/161)) ([b7b0924](https://github.com/inference-gateway/documentation-agent/commit/b7b0924ae6eb48866f965c010739eab932832ad9))
+* remove CLAUDE.md file ([#148](https://github.com/inference-gateway/documentation-agent/issues/148)) ([c97d843](https://github.com/inference-gateway/documentation-agent/commit/c97d84339cfd0c04a0a319c1a782e1553d3368b4))
+
+### 🔨 Miscellaneous
+
+* **deps:** bump github.com/go-jose/go-jose/v4 from 4.1.5 to 4.1.6 ([#153](https://github.com/inference-gateway/documentation-agent/issues/153)) ([01453f6](https://github.com/inference-gateway/documentation-agent/commit/01453f6a2f500974dd0ee74e3b87363348f14b32))
+
 ## [0.3.20](https://github.com/inference-gateway/documentation-agent/compare/v0.3.19...v0.3.20) (2026-10-15)
 
 ### 🔧 Miscellaneous
